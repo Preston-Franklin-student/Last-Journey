@@ -23,7 +23,7 @@ namespace LastJourney
             int xposition = 0;
             int yposition = -1;
 
-            int itemGenerator = 0;
+            int itemGenerator;
 
             for(int x = 0; x < 100; x++)
             {
@@ -44,7 +44,7 @@ namespace LastJourney
                     generator.transform.position = new Vector2(xposition, yposition);
                     Instantiate(ground, transform.position, transform.rotation);
                 }
-                itemGenerator = Random.Range(1, 6);
+                itemGenerator = Random.Range(1, 21);
                 if (itemGenerator == 1)
                 {
                     yposition += 1;
