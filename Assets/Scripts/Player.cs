@@ -4,30 +4,25 @@ using UnityEngine;
 
 namespace LastJourney
 {
-    [RequireComponent(typeof(Rigidbody2D))]
     public class Player : MonoBehaviour
     {
-        public int movementSpeed = 5;
-        public int jumpSpeed = 5;
+        public Rigidbody2D rigidbody;
 
-        Rigidbody2D rigidbody;
+        public int speed = 7;
+        private Vector2 playerMovement;
 
-        // Start is called before the first frame update
-        void Start()
+        private void OnAwake()
         {
             rigidbody = GetComponent<Rigidbody2D>();
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
             float horizontalInput = Input.GetAxis("Horizontal");
 
-            transform.Translate(Vector3.right * horizontalInput * movementSpeed * Time.deltaTime);
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                rigidbody.AddForce(transform.up * jumpSpeed, ForceMode2D.Impulse);
-            }
+            playerMovement = new Vector2(horizontalInput * speed, -5);
+
+            rigidbody.velocity = playerMovement;
         }
     }
 }
