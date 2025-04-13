@@ -7,6 +7,7 @@ namespace LastJourney
     public class RunningEnemy : MonoBehaviour
     {
         public Rigidbody2D rigidbody;
+        public RunningEnemy enemy;
 
         public bool isMoving = true;
         int direction = 1;
@@ -16,31 +17,23 @@ namespace LastJourney
 
         private void Start()
         {
-            StartCoroutine(CheckXPosition());
         }
         void Update()
         {
-            if (isMoving == false)
+            if(triggerNumber == 0)
             {
-                direction *= -1;
+                if (isMoving == false)
+                {
+                    direction *= -1;
+                }
+                rigidbody.velocity = new Vector2(direction * speed, -10);
             }
-            rigidbody.velocity = new Vector2(direction * speed, -10);
         }
-        IEnumerator CheckXPosition()
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            while (true)
+            if (triggerNumber == 1 && other.gameObject.tag == "Ground")
             {
-                float previousXPosition = transform.position.x;
-                yield return new WaitForSeconds(0.025f);
-                float newXPosition = transform.position.x;
-                if (newXPosition == previousXPosition)
-                {
-                    isMoving = false;
-                }
-                else
-                {
-                    isMoving = true;
-                }
+                enemy.direction *= -1;
             }
         }
     }
