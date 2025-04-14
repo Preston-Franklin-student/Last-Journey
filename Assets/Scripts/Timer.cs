@@ -31,6 +31,12 @@ namespace LastJourney
             timer += increaseTime;
             timerDisplay.text = timer.ToString();
         }
+
+        public void DecreaseTime(int decreaseTime)
+        {
+            timer -= decreaseTime;
+            timerDisplay.text = timer.ToString();
+        }
         IEnumerator StartTimer()
         {
             while (timer > 0)
