@@ -13,7 +13,7 @@ namespace LastJourney
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.DownArrow) && useDoor == true)
+            if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) && useDoor == true)
             {
                 generator.NewSection();
                 score.GainScore();
