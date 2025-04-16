@@ -9,6 +9,11 @@ namespace LastJourney
         public ItemGenerator generator;
 
         public List<GameObject> enemies = new List<GameObject>();
+
+        public int minEnemyIndex;
+        public int maxEnemyIndex;
+        int targetEnemyIndex;
+
         public GameObject blueClock;
 
         //This function is used to generate clocks on demand as well as determining
@@ -25,11 +30,12 @@ namespace LastJourney
         //what enemy will be generated
         public void GenerateEnemy(float xposition, float yposition)
         {
+            targetEnemyIndex = Random.Range(minEnemyIndex, maxEnemyIndex);
             generator.transform.position = new Vector2(xposition, 0);
             float generatoryposition = generator.transform.position.y + yposition;
             generator.transform.position = new Vector2(xposition + 0.5f, generatoryposition + 1.6f);
 
-            Instantiate(enemies[0], transform.position, transform.rotation);
+            Instantiate(enemies[targetEnemyIndex], transform.position, transform.rotation);
         }
     }
 

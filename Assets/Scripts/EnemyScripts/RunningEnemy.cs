@@ -50,11 +50,6 @@ namespace LastJourney
             if (triggerNumber == 2 && other.gameObject.tag == "Ground") enemy.fallSpeed = 0f;
             if (triggerNumber == 3 && other.gameObject.tag == "Ground") enemy.fallSpeed = 0.1f; 
         }
-        //This function raises the enemy out of the ground if it sinks into the ground
-        private void OnCollisionStay2D(Collision2D other)
-        {
-            if (triggerNumber == 3 && other.gameObject.tag == "Ground") enemy.fallSpeed = 25;
-        }
         //This function determines when the enemy is in midair and needs to fall
         //and when the enemy has fully risen out of the ground and needs to stop rising
         private void OnTriggerExit2D(Collider2D other)
