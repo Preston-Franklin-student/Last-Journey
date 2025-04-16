@@ -121,8 +121,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7805006184374559797}
   enemy: {fileID: 1286391125644359311}
-  timer: {fileID: 0}
-  startMoving: 0
   speed: 0
   triggerNumber: 3
   fallSpeed: 0
@@ -247,8 +245,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7805006184374559797}
   enemy: {fileID: 1286391125644359311}
-  timer: {fileID: 0}
-  startMoving: 0
   speed: 0
   triggerNumber: 1
   fallSpeed: 0
@@ -373,8 +369,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7805006184374559797}
   enemy: {fileID: 1286391125644359311}
-  timer: {fileID: 0}
-  startMoving: 0
   speed: 0
   triggerNumber: 2
   fallSpeed: 0
@@ -392,7 +386,7 @@ GameObject:
   - component: {fileID: 1286391125644359311}
   m_Layer: 0
   m_Name: RunningEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -504,8 +498,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7805006184374559797}
   enemy: {fileID: 1286391125644359311}
-  timer: {fileID: 0}
-  startMoving: 1
   speed: 5
   triggerNumber: 0
   fallSpeed: -5
@@ -714,8 +706,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7805006184374559797}
   enemy: {fileID: 1286391125644359311}
-  timer: {fileID: 0}
-  startMoving: 0
   speed: 0
   triggerNumber: 4
   fallSpeed: 0

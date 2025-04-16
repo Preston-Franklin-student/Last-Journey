@@ -25,15 +25,44 @@ namespace LastJourney
         {
             StartCoroutine(GenerateLevel());
         }
-
+        //Destroys everything in the previous section and builds a new one
         public void NewSection()
         {
             tilemap.ClearAllTiles();
+            DestroyEnemies();
+            DestroyClocks();
             StartCoroutine(GenerateLevel());
             player.transform.position = new Vector2(0, 3.5f);
             if (minEnemyChance == maxEnemyChance) maxEnemyChance--;
         }
-
+        //Destroys all enemies that were present in the previous section when
+        //the player progresses to the next one
+        private void DestroyEnemies()
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach(GameObject target in enemies)
+            {
+                if(target.name.Contains("Clone"))
+                {
+                    Destroy(target);
+                }
+            }
+        }
+        //Destroys all clock remaining in the previous section when the player
+        //progresses to the next one
+        private void DestroyClocks()
+        {
+            GameObject[] clocks = GameObject.FindGameObjectsWithTag("Clock");
+            foreach (GameObject target in clocks)
+            {
+                if (target.name.Contains("Clock"))
+                {
+                    Destroy(target);
+                }
+            }
+        }
+        //This code generates a new section as well as determining when and
+        //where clocks and enemies will be generated in that section
         IEnumerator GenerateLevel()
         {
             int columnHeight = Random.Range(minHeight, maxHeight + 1);
