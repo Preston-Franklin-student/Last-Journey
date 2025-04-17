@@ -10,7 +10,8 @@ namespace LastJourney
     {
         public Player player;
         public Tilemap tilemap;
-        public TileBase tile;
+        public TileBase tileSurface;
+        public TileBase tileGround;
         public ItemGenerator generator;
 
         public int minHeight = 1;
@@ -66,6 +67,7 @@ namespace LastJourney
         IEnumerator GenerateLevel()
         {
             int columnHeight = Random.Range(minHeight, maxHeight + 1);
+            int previousColumnHeight;
             int columnAmount = 0;
             int maxColumnAmount = Random.Range(minAmount, maxAmount + 1);
             int xposition = -1;
@@ -74,19 +76,23 @@ namespace LastJourney
             int itemGenerator;
             for(int i = 0; i < 8; i++)
             {
-                for (int x = 0; x < 3; x++)
+                for (int x = 0; x < 2; x++)
                 {
                     yposition += 1;
                     Vector3Int position = new Vector3Int(xposition, yposition, 0);
-                    tilemap.SetTile(position, tile);
+                    tilemap.SetTile(position, tileGround);
                 }
+                Vector3Int newPosition = new Vector3Int(xposition, yposition, 0);
+                tilemap.SetTile(newPosition, tileSurface);
+
                 yposition = -1;
                 xposition += 1;
                 yield return new WaitForSeconds(0.001f);
             }
             for(int x = 0; x < 186; x++)
             {
-                if(186 - x <= maxColumnAmount && columnAmount == maxColumnAmount)
+                previousColumnHeight = columnHeight;
+                if (186 - x <= maxColumnAmount && columnAmount == maxColumnAmount)
                 {
                     columnHeight = 3;
                     columnAmount = 0;
@@ -94,6 +100,7 @@ namespace LastJourney
                 }
                 else if (columnAmount == maxColumnAmount)
                 {
+                    previousColumnHeight = columnHeight;
                     columnHeight = Random.Range(minHeight, maxHeight + 1);
                     columnAmount = 0;
                     maxColumnAmount = Random.Range(minAmount, maxAmount + 1);
@@ -106,14 +113,16 @@ namespace LastJourney
                 {
                     yposition += 1;
                     Vector3Int position = new Vector3Int(xposition, yposition, 0);
-                    tilemap.SetTile(position, tile);
+                    tilemap.SetTile(position, tileGround);
                 }
+                 Vector3Int newPosition = new Vector3Int(xposition, yposition, 0);
+                tilemap.SetTile(newPosition, tileSurface);
 
                 itemGenerator = Random.Range(1, 101);
                 if (itemGenerator == 1) generator.GenerateClock(xposition, yposition);
 
                 itemGenerator = Random.Range(1, maxEnemyChance + 1);
-                if (itemGenerator == 1) generator.GenerateEnemy(xposition, yposition);
+                if (itemGenerator == 1 && columnHeight - previousColumnHeight != 2) generator.GenerateEnemy(xposition, yposition);
 
                 yposition = -1;
                 xposition += 1;

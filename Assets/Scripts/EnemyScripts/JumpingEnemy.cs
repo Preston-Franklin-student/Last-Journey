@@ -39,12 +39,6 @@ namespace LastJourney
                 timer.DecreaseTime(decreaseTime);
             }
             if (triggerNumber == 1 && other.gameObject.tag == "Ground") enemy.fallSpeed = 0f;
-            if (triggerNumber == 2 && other.gameObject.tag == "Ground") enemy.fallSpeed = 0.1f;
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (triggerNumber == 2 && other.gameObject.tag == "Ground" && enemy.fallSpeed > 0) enemy.fallSpeed = 0;
         }
         IEnumerator StartEnemy()
         {

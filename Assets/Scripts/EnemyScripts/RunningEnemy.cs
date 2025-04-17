@@ -38,7 +38,7 @@ namespace LastJourney
             }
         }
         //This function is used by different triggers to prevent the player from
-        //clipping through the ground
+        //clipping through the ground and to allow the enemy to damage the player
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (triggerNumber == 0 && other.gameObject.tag == "Player")
@@ -48,14 +48,13 @@ namespace LastJourney
             }
             if (triggerNumber == 1 && other.gameObject.tag == "Ground") enemy.direction *= -1;
             if (triggerNumber == 2 && other.gameObject.tag == "Ground") enemy.fallSpeed = 0f;
-            if (triggerNumber == 3 && other.gameObject.tag == "Ground") enemy.fallSpeed = 0.1f; 
+            if (triggerNumber == 3 && other.gameObject.tag == "Ground") enemy.fallSpeed = -0.1f;
         }
         //This function determines when the enemy is in midair and needs to fall
         //and when the enemy has fully risen out of the ground and needs to stop rising
         private void OnTriggerExit2D(Collider2D other)
         {
             if (triggerNumber == 2 && other.gameObject.tag == "Ground") enemy.fallSpeed = -5;
-            if (triggerNumber == 4 && other.gameObject.tag == "Ground" && enemy.fallSpeed == 0.1f) enemy.fallSpeed = 0f;
         }
     }
 }
