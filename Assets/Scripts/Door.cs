@@ -15,8 +15,8 @@ namespace LastJourney
         {
             if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) && useDoor == true)
             {
-                generator.NewSection();
                 score.GainScore();
+                generator.NewSection();
             }
         }
             void OnTriggerEnter2D(Collider2D other)

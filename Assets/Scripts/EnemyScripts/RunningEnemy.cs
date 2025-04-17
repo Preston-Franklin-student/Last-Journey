@@ -25,13 +25,13 @@ namespace LastJourney
         void Update()
         {
             Player player = FindFirstObjectByType<Player>();
-            if (triggerNumber == 0 && transform.position.x - player.transform.position.x <= 15 && startMoving == false)
+            if (triggerNumber == 0 && transform.position.x - player.transform.position.x <= 10 && startMoving == false)
             {
                 direction = -1; 
                 startMoving = true;
             }
 
-                if (triggerNumber == 0)
+            if (triggerNumber == 0)
             {
                 rigidbody.velocity = new Vector2(direction * speed, fallSpeed);
 

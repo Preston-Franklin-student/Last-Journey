@@ -500,7 +500,7 @@ MonoBehaviour:
   enemy: {fileID: 1286391125644359311}
   speed: 5
   triggerNumber: 0
-  fallSpeed: -5
+  fallSpeed: 0
 --- !u!1 &6902685572992009911
 GameObject:
   m_ObjectHideFlags: 0

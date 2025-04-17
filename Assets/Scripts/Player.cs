@@ -13,7 +13,8 @@ namespace LastJourney
         public Camera camera;
 
         float maxJumpHeight;
-        bool isJumping = false;
+        int fallSpeed = -10;
+        bool isJumping;
 
         public int speed = 7;
         void Start()
@@ -28,14 +29,8 @@ namespace LastJourney
             {
                 StartCoroutine(PlayerJump());
             }
-            if(isJumping == true)
-            {
-                rigidbody.velocity = new Vector2(horizontalInput * speed, 0);
-            }
-            else
-            {
-                rigidbody.velocity = new Vector2(horizontalInput * speed, -10);
-            }
+            rigidbody.velocity = new Vector2(horizontalInput * speed, fallSpeed);
+
             if (transform.position.x <= -0.55 && horizontalInput != 1)
             {
                 rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
@@ -48,6 +43,7 @@ namespace LastJourney
 
         IEnumerator PlayerJump()
         {
+            fallSpeed = 0;
             isJumping = true;
             maxJumpHeight = rigidbody.transform.position.y + 3;
             while (rigidbody.transform.position.y < maxJumpHeight)
@@ -55,6 +51,7 @@ namespace LastJourney
                 transform.Translate(Vector2.up * Time.deltaTime * jumpForce);
                 yield return new WaitForSeconds(0.001f);
             }
+            fallSpeed = -10;
             isJumping = false;
         }
     }

@@ -17,7 +17,6 @@ namespace LastJourney
             player = GetComponent<Player>();
             StartCoroutine(CheckYPosition());
         }
-
         IEnumerator CheckYPosition()
         {
             while(true)
@@ -36,5 +35,4 @@ namespace LastJourney
             }
         }
     }
-
 }
