@@ -9,30 +9,14 @@ namespace LastJourney
         public Player player;
 
         public bool isFalling = false;
-
-        float previousYPosition;
-        float newYPosition;
-        private void Start()
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            player = GetComponent<Player>();
-            StartCoroutine(CheckYPosition());
+            if (collision.gameObject.tag == "Ground") isFalling = false;
         }
-        IEnumerator CheckYPosition()
+
+        private void OnTriggerExit2D(Collider2D collision)
         {
-            while(true)
-            {
-                previousYPosition = player.transform.position.y;
-                yield return new WaitForSeconds(0.025f);
-                newYPosition = player.transform.position.y;
-                if (Mathf.Abs(newYPosition - previousYPosition) < 0.05)
-                {
-                    isFalling = false;
-                }
-                else
-                {
-                    isFalling = true;
-                }
-            }
+            if (collision.gameObject.tag == "Ground") isFalling = true;
         }
     }
 }
