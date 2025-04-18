@@ -11,7 +11,7 @@ namespace LastJourney
 
         int decreaseTime = 10;
         int direction = 0;
-        bool startMoving = false;
+        public bool startMoving = false;
 
         public int speed;
         public int triggerNumber;
@@ -48,7 +48,7 @@ namespace LastJourney
             }
             if (triggerNumber == 1 && other.gameObject.tag == "Ground") enemy.direction *= -1;
             if (triggerNumber == 2 && other.gameObject.tag == "Ground") enemy.fallSpeed = 0f;
-            if (triggerNumber == 3 && other.gameObject.tag == "Ground") enemy.fallSpeed = -0.1f;
+            if (triggerNumber == 3 && other.gameObject.tag == "Ground" && enemy.startMoving == true) enemy.fallSpeed = -0.1f;
         }
         //This function determines when the enemy is in midair and needs to fall
         //and when the enemy has fully risen out of the ground and needs to stop rising

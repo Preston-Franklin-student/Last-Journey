@@ -8,7 +8,7 @@ namespace LastJourney
     {
         public Player player;
 
-        public bool isFalling = false;
+        public bool isFalling = true;
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.tag == "Ground") isFalling = false;

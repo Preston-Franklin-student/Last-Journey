@@ -129,7 +129,25 @@ namespace LastJourney
                 if (itemGenerator == 1) generator.GenerateClock(xposition, yposition);
 
                 itemGenerator = Random.Range(1, maxEnemyChance + 1);
-                if (itemGenerator == 1 && columnHeight == previousColumnHeight && x > 10) generator.GenerateEnemy(xposition, yposition, enemyCounter);
+                if (itemGenerator == 1 && columnHeight == previousColumnHeight && x > 10)
+                {
+                    generator.GenerateEnemy(xposition, yposition, enemyCounter);
+                }
+
+                yposition = -1;
+                xposition += 1;
+                yield return new WaitForSeconds(0.001f);
+            }
+            for (int i = 0; i < 8; i++)
+            {
+                for (int x = 0; x < 3; x++)
+                {
+                    yposition += 1;
+                    Vector3Int position = new Vector3Int(xposition, yposition, 0);
+                    tilemap.SetTile(position, tileGround);
+                }
+                Vector3Int newPosition = new Vector3Int(xposition, yposition, 0);
+                tilemap.SetTile(newPosition, tileSurface);
 
                 yposition = -1;
                 xposition += 1;

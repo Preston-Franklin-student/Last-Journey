@@ -13,10 +13,10 @@ namespace LastJourney
         public Camera camera;
 
         float maxJumpHeight;
-        int fallSpeed = -10;
-        bool isJumping;
+        public int fallSpeed = -10;
+        public bool isJumping = false;
 
-        public int speed = 7;
+        public int speed = 5;
         void Start()
         {
             rigidbody = GetComponent<Rigidbody2D>();
@@ -28,6 +28,12 @@ namespace LastJourney
             if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && detection.isFalling == false && isJumping == false)
             {
                 StartCoroutine(PlayerJump());
+            }
+            if(detection.isFalling == true && isJumping == false)
+            {
+                fallSpeed = -10;
+            }else{
+                fallSpeed = 0;
             }
             rigidbody.velocity = new Vector2(horizontalInput * speed, fallSpeed);
 

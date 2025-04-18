@@ -13,8 +13,14 @@ namespace LastJourney
 
         public int minEnemyIndex;
         public int maxEnemyIndex;
+        public int spikeIndex;
+        public int minSpikeAmount;
+        public int maxSpikeAmount;
+        public int spikeAmount;
+        public int generateSpike;
+        public int targetEnemyIndex;
+        public int spikeCooldown;
         int enemyCounter = 0;
-        int targetEnemyIndex;
 
         public GameObject blueClock;
 
@@ -32,14 +38,15 @@ namespace LastJourney
         //what enemy will be generated
         public void GenerateEnemy(float xposition, float yposition, int enemyCounter)
         {
-            if (maxEnemyIndex ==  enemyCounter) maxEnemyIndex++;
-            targetEnemyIndex = Random.Range(minEnemyIndex, maxEnemyIndex);
             generator.transform.position = new Vector2(xposition, 0);
             float generatoryposition = generator.transform.position.y + yposition;
             generator.transform.position = new Vector2(xposition + 0.5f, generatoryposition + 1.5f);
 
-            Instantiate(enemies[targetEnemyIndex], transform.position, transform.rotation);
+            if (maxEnemyIndex == enemyCounter) maxEnemyIndex++;
+            targetEnemyIndex = Random.Range(minEnemyIndex, maxEnemyIndex);
+
+           Instantiate(enemies[targetEnemyIndex], transform.position, transform.rotation);
+
         }
     }
-
 }
