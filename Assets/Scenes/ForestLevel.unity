@@ -306,11 +306,11 @@ MonoBehaviour:
   - {fileID: 5414436791959569265, guid: 6475b265a34532145990bcd3d89e8c4d, type: 3}
   - {fileID: 27228201391250295, guid: 4828e3396bbf0584f8213c9a406c5fae, type: 3}
   - {fileID: 8089249345141680667, guid: 8efbbf07c703dc3409e0e58dcd214e59, type: 3}
-  minEnemyIndex: 1
-  maxEnemyIndex: 3
+  minEnemyIndex: 0
+  maxEnemyIndex: 1
   spikeIndex: 2
-  minSpikeAmount: 3
-  maxSpikeAmount: 6
+  minSpikeAmount: 2
+  maxSpikeAmount: 4
   spikeAmount: 1
   generateSpike: 0
   targetEnemyIndex: 0
@@ -635,13 +635,14 @@ MonoBehaviour:
   tileSurface: {fileID: 11400000, guid: 0601f91dc10a31341a0db416515f8f3d, type: 2}
   tileGround: {fileID: 11400000, guid: a697ede15ddd1ce408c61341e30eef54, type: 2}
   generator: {fileID: 333593902}
-  enemyIndex: 0300000005000000
+  enemyIndex: 0100000002000000
   minHeight: 1
   maxHeight: 3
   minAmount: 4
   maxAmount: 8
   minEnemyChance: 10
-  maxEnemyChance: 20
+  maxEnemyChance: 50
+  enemyCounter: 0
 --- !u!1 &945127042
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,8 +987,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 0.96, y: 0.96}
+    newSize: {x: 0.96, y: 0.96}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1054,12 +1055,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2311659948842064771, guid: f6e9024a21fe4d44aaebc7c71dcb697c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.96, y: 0.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

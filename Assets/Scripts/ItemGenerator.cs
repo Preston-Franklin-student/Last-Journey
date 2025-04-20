@@ -36,17 +36,32 @@ namespace LastJourney
         }
         //This function is used to generate enemies on demand as well as determining
         //what enemy will be generated
-        public void GenerateEnemy(float xposition, float yposition, int enemyCounter)
+        public void GenerateEnemy(float xposition, float yposition)
         {
             generator.transform.position = new Vector2(xposition, 0);
             float generatoryposition = generator.transform.position.y + yposition;
             generator.transform.position = new Vector2(xposition + 0.5f, generatoryposition + 1.5f);
 
-            if (maxEnemyIndex == enemyCounter) maxEnemyIndex++;
-            targetEnemyIndex = Random.Range(minEnemyIndex, maxEnemyIndex);
+                Instantiate(enemies[targetEnemyIndex], transform.position, transform.rotation);
+                if (spikeCooldown == 10) spikeCooldown = 0;
+                else if(spikeCooldown != 0) spikeCooldown++;
+        }
 
-           Instantiate(enemies[targetEnemyIndex], transform.position, transform.rotation);
+        public void GenerateSpike(float xposition, float yposition)
+        {
+            generator.transform.position = new Vector2(xposition, 0);
+            float generatoryposition = generator.transform.position.y + yposition;
+            generator.transform.position = new Vector2(xposition + 0.5f, generatoryposition + 1.5f);
 
+            if (spikeAmount == 1) spikeAmount = Random.Range(minSpikeAmount, maxSpikeAmount);
+            Instantiate(enemies[spikeIndex], transform.position, transform.rotation);
+            generateSpike++;
+            if (generateSpike == spikeAmount)
+            {
+                generateSpike = 0;
+                spikeAmount = 1;
+                spikeCooldown++;
+            }
         }
     }
 }

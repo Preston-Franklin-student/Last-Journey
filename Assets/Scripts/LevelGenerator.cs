@@ -24,8 +24,9 @@ namespace LastJourney
         public int maxAmount = 10;
         public int minEnemyChance;
         public int maxEnemyChance;
-        
-        int enemyCounter = 0;
+
+        public int enemyCounter = 0;
+        bool generateEnemy = false;
 
         // Start is called before the first frame update
         void Start()
@@ -40,7 +41,7 @@ namespace LastJourney
             DestroyClocks();
             if (minEnemyChance != maxEnemyChance) maxEnemyChance--;
             if (enemyCounter == enemyIndex.Count) enemyCounter--;
-            if (score.score == enemyIndex[enemyCounter]) enemyCounter++;
+            if (score.score == enemyIndex[enemyCounter]) enemyCounter++; 
             player.transform.position = new Vector2(0, 3.5f);
             StartCoroutine(GenerateLevel());
         }
@@ -81,8 +82,8 @@ namespace LastJourney
             int xposition = -1;
             int yposition = -1;
 
-            int itemGenerator;
-            for(int i = 0; i < 8; i++)
+            int itemGenerator = 0;
+            for (int i = 0; i < 8; i++)
             {
                 for (int x = 0; x < 2; x++)
                 {
@@ -97,7 +98,7 @@ namespace LastJourney
                 xposition += 1;
                 yield return new WaitForSeconds(0.001f);
             }
-            for(int x = 0; x < 186; x++)
+            for (int x = 0; x < 186; x++)
             {
                 previousColumnHeight = columnHeight;
                 if (186 - x <= maxColumnAmount && columnAmount == maxColumnAmount)
@@ -122,20 +123,38 @@ namespace LastJourney
                     Vector3Int position = new Vector3Int(xposition, yposition, 0);
                     tilemap.SetTile(position, tileGround);
                 }
-                 Vector3Int newPosition = new Vector3Int(xposition, yposition, 0);
+                Vector3Int newPosition = new Vector3Int(xposition, yposition, 0);
                 tilemap.SetTile(newPosition, tileSurface);
 
-                itemGenerator = Random.Range(1, 101);
-                if (itemGenerator == 1) generator.GenerateClock(xposition, yposition);
-
-                itemGenerator = Random.Range(1, maxEnemyChance + 1);
-                if (itemGenerator == 1 && columnHeight == previousColumnHeight && x > 10)
+                if (generator.maxEnemyIndex == enemyCounter) generator.maxEnemyIndex++;
+                if(generator.spikeAmount == 1) generator.targetEnemyIndex = Random.Range(generator.minEnemyIndex, generator.maxEnemyIndex);
+                if (generator.generateSpike == generator.spikeAmount || columnHeight != previousColumnHeight)
                 {
-                    generator.GenerateEnemy(xposition, yposition, enemyCounter);
+                    generator.spikeCooldown = 1;
+                    generator.generateSpike = 0;
+                    generator.spikeAmount = 1;
                 }
-
+                if(generator.spikeAmount == 1) itemGenerator = Random.Range(1, maxEnemyChance + 1);
+                if (itemGenerator == 1 && columnHeight == previousColumnHeight && x > 10 && generator.targetEnemyIndex != generator.spikeIndex)
+                {
+                        generator.GenerateEnemy(xposition, yposition);
+                        generateEnemy = true;
+                }
+                if ((itemGenerator == 1 && generator.spikeAmount == 1 || generator.spikeAmount != 1) && generator.spikeCooldown == 0)
+                {
+                    if (generator.targetEnemyIndex == generator.spikeIndex && columnHeight == previousColumnHeight)
+                    {
+                        generator.GenerateSpike(xposition, yposition);
+                        generateEnemy = true;
+                    }
+                }
+                itemGenerator = Random.Range(1, 101);
+                if (itemGenerator == 1 && generateEnemy == false) generator.GenerateClock(xposition, yposition);
+                generateEnemy = false;
                 yposition = -1;
                 xposition += 1;
+                if (generator.spikeCooldown == 10) generator.spikeCooldown = 0;
+                else if (generator.spikeCooldown != 0) generator.spikeCooldown++;
                 yield return new WaitForSeconds(0.001f);
             }
             for (int i = 0; i < 8; i++)
