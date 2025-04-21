@@ -9,41 +9,47 @@ namespace LastJourney
         public float jumpForce = 4;
         public Rigidbody2D rigidbody;
 
-        public GroundDetection detection;
         public Camera camera;
+        public Player player;
 
         float maxJumpHeight;
         public int fallSpeed = -10;
         public bool isJumping = false;
-
+        public bool isFalling = true;
         public int speed = 5;
+        public int triggerNumber;
         void Start()
         {
             rigidbody = GetComponent<Rigidbody2D>();
         }
         private void Update()
         {
-            float horizontalInput = Input.GetAxis("Horizontal");
+            if(triggerNumber == 0)
+            {
+                float horizontalInput = Input.GetAxis("Horizontal");
 
-            if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && detection.isFalling == false && isJumping == false)
-            {
-                StartCoroutine(PlayerJump());
-            }
-            if(detection.isFalling == true && isJumping == false)
-            {
-                fallSpeed = -10;
-            }else{
-                fallSpeed = 0;
-            }
-            rigidbody.velocity = new Vector2(horizontalInput * speed, fallSpeed);
+                if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && player.isFalling == false && isJumping == false)
+                {
+                    StartCoroutine(PlayerJump());
+                }
+                if (player.isFalling == true && isJumping == false)
+                {
+                    fallSpeed = -10;
+                }
+                else
+                {
+                    fallSpeed = 0;
+                }
+                rigidbody.velocity = new Vector2(horizontalInput * speed, fallSpeed);
 
-            if (transform.position.x <= -0.55 && horizontalInput != 1)
-            {
-                rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
-            }
-            if (transform.position.x >= 199.55 && horizontalInput != -1)
-            {
-                rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
+                if (transform.position.x <= -0.55 && horizontalInput != 1)
+                {
+                    rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
+                }
+                if (transform.position.x >= 199.55 && horizontalInput != -1)
+                {
+                    rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
+                }
             }
         }
 
@@ -59,6 +65,18 @@ namespace LastJourney
             }
             fallSpeed = -10;
             isJumping = false;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+ 
+            if (triggerNumber == 1 && other.gameObject.tag == "Ground") player.isFalling = false;
+        }
+        //This function determines when the enemy is in midair and needs to fall
+        //and when the enemy has fully risen out of the ground and needs to stop rising
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (triggerNumber == 1 && other.gameObject.tag == "Ground") player.isFalling = true;
         }
     }
 }
