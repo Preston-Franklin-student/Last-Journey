@@ -9,6 +9,7 @@ namespace LastJourney
         public GameManager gameManager;
         public Text timerDisplay;
         public int timer = 300;
+        public int levelIndex;
         // Start is called before the first frame update
         void Start()
         {
@@ -22,7 +23,8 @@ namespace LastJourney
             {
                 StopCoroutine(StartTimer());
                 timer = 0;
-                gameManager.Restart();
+                gameManager.TransferLevelIndex(levelIndex);
+                gameManager.GameOver();
             }
         }
 

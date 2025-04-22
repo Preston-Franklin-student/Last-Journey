@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/GameOverScreen.unity
+    guid: f321b72d7be48794cad059991345e02a
+  - enabled: 1
     path: Assets/Scenes/ForestLevel.unity
     guid: 56716dfba7c83b4478aae4f27e1d8a1f
   m_configObjects: {}

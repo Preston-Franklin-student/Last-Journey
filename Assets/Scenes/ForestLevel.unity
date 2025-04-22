@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 12080d4aa8d4cef499bb4801cd127e28, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.1918942, g: 0.67480475, b: 0.912108, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -207,9 +207,9 @@ Transform:
   m_GameObject: {fileID: 241497109}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -20}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -306,9 +306,9 @@ MonoBehaviour:
   - {fileID: 5414436791959569265, guid: 6475b265a34532145990bcd3d89e8c4d, type: 3}
   - {fileID: 27228201391250295, guid: 4828e3396bbf0584f8213c9a406c5fae, type: 3}
   - {fileID: 8089249345141680667, guid: 8efbbf07c703dc3409e0e58dcd214e59, type: 3}
-  - {fileID: 6444604495615743824, guid: 42ea1bceaea90664f9b0a6ce0be13e48, type: 3}
-  minEnemyIndex: 3
-  maxEnemyIndex: 4
+  - {fileID: 5414436791959569265, guid: b6680c2bcddd33c499f7bf43b9e1f24d, type: 3}
+  minEnemyIndex: 0
+  maxEnemyIndex: 1
   spikeIndex: 2
   minSpikeAmount: 2
   maxSpikeAmount: 4
@@ -586,63 +586,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 591451273}
   m_CullTransparentMesh: 1
---- !u!1001 &617723946
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6075699738952873674, guid: 42ea1bceaea90664f9b0a6ce0be13e48, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.185
-      objectReference: {fileID: 0}
-    - target: {fileID: 6075699738952873674, guid: 42ea1bceaea90664f9b0a6ce0be13e48, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.649
-      objectReference: {fileID: 0}
-    - target: {fileID: 6075699738952873674, guid: 42ea1bceaea90664f9b0a6ce0be13e48, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6075699738952873674, guid: 42ea1bceaea90664f9b0a6ce0be13e48, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6075699738952873674, guid: 42ea1bceaea90664f9b0a6ce0be13e48, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6075699738952873674, guid: 42ea1bceaea90664f9b0a6ce0be13e48, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6075699738952873674, guid: 42ea1bceaea90664f9b0a6ce0be13e48, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6075699738952873674, guid: 42ea1bceaea90664f9b0a6ce0be13e48, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6075699738952873674, guid: 42ea1bceaea90664f9b0a6ce0be13e48, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6075699738952873674, guid: 42ea1bceaea90664f9b0a6ce0be13e48, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6444604495615743824, guid: 42ea1bceaea90664f9b0a6ce0be13e48, type: 3}
-      propertyPath: m_Name
-      value: FollowingEnemy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 42ea1bceaea90664f9b0a6ce0be13e48, type: 3}
 --- !u!1 &649660412
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,7 +642,7 @@ MonoBehaviour:
   minAmount: 4
   maxAmount: 8
   minEnemyChance: 10
-  maxEnemyChance: 10
+  maxEnemyChance: 50
   enemyCounter: 0
 --- !u!1 &945127042
 GameObject:
@@ -1065,7 +1008,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1355260199}
   timerDisplay: {fileID: 1048140717}
-  timer: 60
+  timer: 300
+  levelIndex: 2
 --- !u!1 &1355260198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,6 +1039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f3a976ef193074b9f783572fc88a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelIndex: 0
 --- !u!4 &1355260200
 Transform:
   m_ObjectHideFlags: 0
@@ -1415,4 +1360,3 @@ SceneRoots:
   - {fileID: 489690172}
   - {fileID: 2071925654}
   - {fileID: 1388996274}
-  - {fileID: 617723946}

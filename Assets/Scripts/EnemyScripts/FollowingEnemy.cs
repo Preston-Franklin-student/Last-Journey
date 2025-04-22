@@ -11,14 +11,12 @@ namespace LastJourney
 
         int decreaseTime = 10;
         int direction = 0;
-        bool startMoving = false;
-        bool leftWall = false;
-        bool rightWall = false;
-
+        public bool startMoving = false;
+        public bool leftWall = false;
+        public bool rightWall = false;
         public int speed;
         public int triggerNumber;
         public float fallSpeed;
-
         void Start()
         {
             direction = 0;
@@ -27,19 +25,24 @@ namespace LastJourney
         void Update()
         {
             Player player = FindFirstObjectByType<Player>();
-            if (triggerNumber == 0 && transform.position.x - player.transform.position.x <= 2 && startMoving == false)
+            if (triggerNumber == 0 && transform.position.x - player.transform.position.x <= 3 && startMoving == false)
             {
                 direction = -1;
                 startMoving = true;
             }
-
+            if(triggerNumber == 0)
+            {
+            if (player.transform.position.x > transform.position.x && leftWall == true) leftWall = false;
+            if (player.transform.position.x < transform.position.x && rightWall == true) rightWall = false;
+            if (Mathf.Abs(player.transform.position.x - transform.position.x) < 0.1f) direction = 0;
+            else if (player.transform.position.x < transform.position.x - 3 && leftWall == false && startMoving == true) direction = -1;
+            else if (player.transform.position.x > transform.position.x + 3 && rightWall == false && startMoving == true) direction = 1;
+            }
             if (triggerNumber == 0)
             {
                 rigidbody.velocity = new Vector2(direction * speed, fallSpeed);
 
             }
-            if (player.transform.position.x > transform.position.x && rightWall == false) direction = 1;
-            if (player.transform.position.x < transform.position.x && leftWall == false) direction = -1;
         }
         //This function is used by different triggers to prevent the player from
         //clipping through the ground and to allow the enemy to damage the player
@@ -50,25 +53,19 @@ namespace LastJourney
                 Timer timer = FindFirstObjectByType<Timer>();
                 timer.DecreaseTime(decreaseTime);
             }
-            if (triggerNumber == 1 && other.gameObject.tag == "Ground" && enemy.direction == -1)
-            {
-                enemy.leftWall = true;
-                enemy.direction = 0;
-            }
-            if (triggerNumber == 1 && other.gameObject.tag == "Ground" && enemy.direction == 1)
-            {
-                enemy.rightWall = true;
-                enemy.direction = 0;
-            }
             if (triggerNumber == 2 && other.gameObject.tag == "Ground") enemy.fallSpeed = 0f;
             if (triggerNumber == 3 && other.gameObject.tag == "Ground" && enemy.startMoving == true) enemy.fallSpeed = -0.1f;
+            if (triggerNumber == 1 && other.gameObject.tag == "Ground")
+            {
+                enemy.direction = 0;
+                enemy.leftWall = true;
+                enemy.rightWall = true;
+            }
         }
         //This function determines when the enemy is in midair and needs to fall
         //and when the enemy has fully risen out of the ground and needs to stop rising
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (triggerNumber == 1 && other.gameObject.tag == "Ground" && enemy.direction == 1) enemy.leftWall = false;
-            if (triggerNumber == 1 && other.gameObject.tag == "Ground" && enemy.direction == -1) enemy.rightWall = false;
             if (triggerNumber == 2 && other.gameObject.tag == "Ground") enemy.fallSpeed = -5;
         }
     }
