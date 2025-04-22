@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 308127b1b5abe4344b036efee11e183f
+guid: 89b26d3bf528ba24da32df27f820d958
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2311659948842064771
-    second: Player_0
+      213: -6098086973493743876
+    second: ForestFollowingEnemy_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,7 +98,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_0
+      name: ForestFollowingEnemy_0
       rect:
         serializedVersion: 2
         x: 0
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d7465c336855befd0800000000000000
-      internalID: -2311659948842064771
+      spriteID: cfee777e43e3f5ba0800000000000000
+      internalID: -6098086973493743876
       vertices: []
       indices: 
       edges: []

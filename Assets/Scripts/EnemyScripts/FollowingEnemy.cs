@@ -69,7 +69,7 @@ namespace LastJourney
         {
             if (triggerNumber == 1 && other.gameObject.tag == "Ground" && enemy.direction == 1) enemy.leftWall = false;
             if (triggerNumber == 1 && other.gameObject.tag == "Ground" && enemy.direction == -1) enemy.rightWall = false;
-            if (triggerNumber == 2 && other.gameObject.tag == "Ground" && enemy.fallSpeed == 0) enemy.fallSpeed = -5;
+            if (triggerNumber == 2 && other.gameObject.tag == "Ground") enemy.fallSpeed = -5;
         }
     }
 }

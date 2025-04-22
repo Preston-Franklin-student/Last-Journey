@@ -149,7 +149,7 @@ namespace LastJourney
                     }
                 }
                 itemGenerator = Random.Range(1, 101);
-                if (itemGenerator == 1 && generateEnemy == false) generator.GenerateClock(xposition, yposition);
+                if (itemGenerator == 0 && generateEnemy == false) generator.GenerateClock(xposition, yposition);
                 generateEnemy = false;
                 yposition = -1;
                 xposition += 1;
