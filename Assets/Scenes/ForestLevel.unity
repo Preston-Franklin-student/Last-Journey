@@ -413,7 +413,7 @@ Transform:
   m_GameObject: {fileID: 489690170}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 198.5, y: 3.5, z: 0}
+  m_LocalPosition: {x: 197, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1008,7 +1008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1355260199}
   timerDisplay: {fileID: 1048140717}
-  timer: 300
+  timer: 60
   levelIndex: 2
 --- !u!1 &1355260198
 GameObject:

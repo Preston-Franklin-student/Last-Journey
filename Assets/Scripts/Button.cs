@@ -12,7 +12,6 @@ namespace LastJourney
         {
             gameManager = FindFirstObjectByType<GameManager>();
         }
-
         public void TitleScreen()
         {
             gameManager.TitleScreen();
@@ -21,7 +20,6 @@ namespace LastJourney
         {
             gameManager.Restart();
         }
-
         public void LoadForestLevel()
         {
             gameManager.LoadForestLevel();
