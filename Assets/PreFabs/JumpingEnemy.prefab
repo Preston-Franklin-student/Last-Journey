@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 1504561315324349341}
   enemy: {fileID: 2725060675902183221}
+  decreaseTime: 5
   triggerNumber: 0
   jumpForce: 12
   fallSpeed: 0
@@ -247,6 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 1504561315324349341}
   enemy: {fileID: 2725060675902183221}
+  decreaseTime: 10
   triggerNumber: 1
   jumpForce: 4
   fallSpeed: 0

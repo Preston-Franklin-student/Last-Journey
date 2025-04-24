@@ -45,10 +45,24 @@ namespace LastJourney
                 if (transform.position.x <= -0.46 && horizontalInput != 1)
                 {
                     rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
+                    if (transform.position.x <= -0.46 && horizontalInput == 0)
+                    {
+                        rigidbody.velocity = new Vector2(1f, rigidbody.velocity.y);
+                    }
                 }
-                if (transform.position.x >= 200.46 && horizontalInput != -1)
+
+                if (transform.position.x >= 200.44 && horizontalInput != -1)
                 {
                     rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
+                    if (transform.position.x >= 200.44 && horizontalInput == 0)
+                    {
+                        rigidbody.velocity = new Vector2(-1f, rigidbody.velocity.y);
+                    }
+                }
+                if(transform.position.y < 0)
+                {
+                    transform.position = new Vector2(0, 3.5f);
+                    rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
                 }
             }
         }

@@ -12,13 +12,13 @@ namespace TowerDefense
         // Update is called once per frame
         void Update()
         {
-            if(player.transform.position.x <= 7.8)
+            if(player.transform.position.x <= 8.04)
             {
-                transform.position = new Vector3(7.8f, 5.67f, -10);
+                transform.position = new Vector3(8.04f, 5.67f, -10);
             }
-            else if(player.transform.position.x >= 192.2)
+            else if(player.transform.position.x >= 191.98)
             {
-                transform.position = new Vector3(192.2f, 5.67f, -10);
+                transform.position = new Vector3(191.98f, 5.67f, -10);
             }
             else
             {

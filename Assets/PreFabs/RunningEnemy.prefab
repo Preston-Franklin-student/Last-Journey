@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7805006184374559797}
   enemy: {fileID: 1286391125644359311}
+  decreaseTime: 10
   startMoving: 0
   speed: 0
   triggerNumber: 2
@@ -246,6 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7805006184374559797}
   enemy: {fileID: 1286391125644359311}
+  decreaseTime: 10
   startMoving: 0
   speed: 0
   triggerNumber: 1
@@ -371,6 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7805006184374559797}
   enemy: {fileID: 1286391125644359311}
+  decreaseTime: 10
   startMoving: 0
   speed: 0
   triggerNumber: 3
@@ -585,6 +588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7805006184374559797}
   enemy: {fileID: 1286391125644359311}
+  decreaseTime: 5
   startMoving: 0
   speed: 5
   triggerNumber: 0
@@ -710,6 +714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7805006184374559797}
   enemy: {fileID: 1286391125644359311}
+  decreaseTime: 10
   startMoving: 0
   speed: 0
   triggerNumber: 2

@@ -20,9 +20,9 @@ namespace LastJourney
         {
             gameManager.Restart();
         }
-        public void LoadForestLevel()
+        public void LoadChosenLevel()
         {
-            gameManager.LoadForestLevel();
+            gameManager.LoadChosenLevel();
         }
     }
 }

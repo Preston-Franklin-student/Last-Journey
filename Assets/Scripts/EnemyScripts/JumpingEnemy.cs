@@ -9,7 +9,7 @@ namespace LastJourney
         public Rigidbody2D rigidbody;
         public JumpingEnemy enemy;
 
-        int decreaseTime = 10;
+        public int decreaseTime = 10;
         float maxJumpHeight;
 
         public int triggerNumber;

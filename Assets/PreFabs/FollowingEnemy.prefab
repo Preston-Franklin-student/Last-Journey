@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7805006184374559797}
   enemy: {fileID: 7044974609521154480}
+  decreaseTime: 10
   startMoving: 0
   leftWall: 0
   rightWall: 0
@@ -248,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7805006184374559797}
   enemy: {fileID: 7044974609521154480}
+  decreaseTime: 10
   startMoving: 0
   leftWall: 0
   rightWall: 0
@@ -375,6 +377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7805006184374559797}
   enemy: {fileID: 7044974609521154480}
+  decreaseTime: 10
   startMoving: 0
   leftWall: 0
   rightWall: 0
@@ -591,6 +594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7805006184374559797}
   enemy: {fileID: 7044974609521154480}
+  decreaseTime: 5
   startMoving: 0
   leftWall: 0
   rightWall: 0
@@ -718,6 +722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7805006184374559797}
   enemy: {fileID: 7044974609521154480}
+  decreaseTime: 10
   startMoving: 0
   leftWall: 0
   rightWall: 0

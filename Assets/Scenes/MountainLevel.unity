@@ -637,14 +637,14 @@ MonoBehaviour:
   tileGround: {fileID: 11400000, guid: a697ede15ddd1ce408c61341e30eef54, type: 2}
   generator: {fileID: 333593902}
   enemyIndex: 03000000050000000a000000
-  minHeight: 1
-  maxHeight: 3
-  minAmount: 4
-  maxAmount: 8
+  minHeight: 0
+  maxHeight: 5
+  minAmount: 2
+  maxAmount: 5
   minEnemyChance: 10
-  maxEnemyChance: 30
+  maxEnemyChance: 50
   enemyCounter: 0
-  canGenerateDuplicateHeight: 1
+  canGenerateDuplicateHeight: 0
 --- !u!1 &945127042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1010,7 @@ MonoBehaviour:
   gameManager: {fileID: 1355260199}
   timerDisplay: {fileID: 1048140717}
   timer: 60
-  levelIndex: 2
+  levelIndex: 3
 --- !u!1 &1355260198
 GameObject:
   m_ObjectHideFlags: 0

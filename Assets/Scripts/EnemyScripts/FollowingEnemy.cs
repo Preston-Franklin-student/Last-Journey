@@ -9,7 +9,7 @@ namespace LastJourney
         public Rigidbody2D rigidbody;
         public FollowingEnemy enemy;
 
-        int decreaseTime = 10;
+        public int decreaseTime = 10;
         int direction = 0;
         public bool startMoving = false;
         public bool leftWall = false;

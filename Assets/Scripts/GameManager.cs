@@ -8,8 +8,9 @@ namespace LastJourney
     public class GameManager : MonoBehaviour
     {
         public static GameManager instance;
-
+        public LevelSelect levelSelect;
         public int levelIndex;
+        public int chosenLevel = 0;
         void Awake()
         {
             if (instance)
@@ -42,9 +43,10 @@ namespace LastJourney
             SceneManager.LoadScene(levelIndex);
         }
 
-        public void LoadForestLevel()
+        public void LoadChosenLevel()
         {
-            SceneManager.LoadScene(2);
+            chosenLevel = levelSelect.currentLevelIndex + 2;
+            SceneManager.LoadScene(chosenLevel);
         }
     }
 }
