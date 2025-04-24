@@ -42,11 +42,11 @@ namespace LastJourney
                 }
                 rigidbody.velocity = new Vector2(horizontalInput * speed, fallSpeed);
 
-                if (transform.position.x <= -0.55 && horizontalInput != 1)
+                if (transform.position.x <= -0.46 && horizontalInput != 1)
                 {
                     rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
                 }
-                if (transform.position.x >= 199.55 && horizontalInput != -1)
+                if (transform.position.x >= 200.46 && horizontalInput != -1)
                 {
                     rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
                 }

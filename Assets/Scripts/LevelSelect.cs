@@ -7,16 +7,19 @@ namespace LastJourney
     public class LevelSelect : MonoBehaviour
     {
         public LevelSelect levelSelect;
-        public GameObject gameObject;
+        public GameObject[] levels;
         public int levelIndex;
-        int currentLevelIndex = 1;
+        public int currentLevelIndex = 1;
         public bool levelButton;
 
         // Update is called once per frame
         void Update()
         {
-            if (levelButton == true && levelIndex == levelSelect.currentLevelIndex) gameObject.SetActive(true);
-            else if(levelButton == false) gameObject.SetActive(false);
+            for (int i = 0; i < levels.Length; i++)
+            {
+                if (i == currentLevelIndex) levels[i].SetActive(true);
+                else levels[i].SetActive(false);
+            }
         }
 
         public void IncreaseIndex()
