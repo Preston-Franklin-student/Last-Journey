@@ -125,8 +125,6 @@ namespace LastJourney
                         maxColumnAmount = Random.Range(minAmount, maxAmount + 1);
                     }
                     if (columnHeight > previousColumnHeight + 2) columnHeight = previousColumnHeight + 2;
-                    print("previous" + previousColumnHeight);
-                    print("current" + columnHeight);
                 }
                 else
                 {
