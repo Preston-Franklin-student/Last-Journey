@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1043857698444942552
+--- !u!1 &2648231139667706795
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7850524744387055622}
-  - component: {fileID: 3149216673432838803}
+  - component: {fileID: 8454253603742682527}
+  - component: {fileID: 792741026392421331}
   m_Layer: 0
-  m_Name: BlueClock_0
+  m_Name: RedClock_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7850524744387055622
+--- !u!4 &8454253603742682527
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043857698444942552}
+  m_GameObject: {fileID: 2648231139667706795}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9002412085600274110}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3149216673432838803
+--- !u!212 &792741026392421331
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043857698444942552}
+  m_GameObject: {fileID: 2648231139667706795}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4334953078462712912, guid: 20b5d7b01b4b3f04f970b883bfae1ce3, type: 3}
+  m_Sprite: {fileID: 5503101897049100788, guid: 5ed39f7238d4dd8448ea5ef23195ec25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8746935292473548101}
   - component: {fileID: 191915277187507993}
   m_Layer: 0
-  m_Name: BlueClock
+  m_Name: RedClock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7850524744387055622}
+  - {fileID: 8454253603742682527}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8746935292473548101
