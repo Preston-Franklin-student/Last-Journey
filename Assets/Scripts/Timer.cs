@@ -8,11 +8,14 @@ namespace LastJourney
     {
         public GameManager gameManager;
         public Text timerDisplay;
+        public Score score;
+
         public int timer = 300;
         public int levelIndex;
         // Start is called before the first frame update
         void Start()
         {
+            gameManager = FindFirstObjectByType<GameManager>();
             StartCoroutine(StartTimer());
             timerDisplay.text = timer.ToString();
         }
@@ -23,7 +26,8 @@ namespace LastJourney
             {
                 StopCoroutine(StartTimer());
                 timer = 0;
-                gameManager.TransferLevelIndex(levelIndex);
+                timerDisplay.text = timer.ToString();
+                gameManager.TransferLevelIndex(levelIndex, score.score, score.highScore);
                 gameManager.GameOver();
             }
         }

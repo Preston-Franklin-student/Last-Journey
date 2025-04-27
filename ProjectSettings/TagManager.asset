@@ -48,7 +48,13 @@ TagManager:
   - name: BackGround
     uniqueID: 2129595273
     locked: 0
-  - name: InGameObjects
+  - name: Clocks and Door
+    uniqueID: 3947388981
+    locked: 0
+  - name: Player
+    uniqueID: 3137060873
+    locked: 0
+  - name: Enemies
     uniqueID: 1033886523
     locked: 0
   - name: ForeGround

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1918942, g: 0.67480475, b: 0.912108, a: 1}
+  m_IndirectSpecularColor: {r: 0.19177274, g: 0.6743155, b: 0.9116213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -718,6 +718,7 @@ MonoBehaviour:
   tileSurface: {fileID: 11400000, guid: 0601f91dc10a31341a0db416515f8f3d, type: 2}
   tileGround: {fileID: 11400000, guid: a697ede15ddd1ce408c61341e30eef54, type: 2}
   generator: {fileID: 333593902}
+  generator2: {fileID: 0}
   enemyIndex: 03000000050000000a000000
   minHeight: 0
   maxHeight: 5
@@ -913,7 +914,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -122979909
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1164,7 +1165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1355260199}
   timerDisplay: {fileID: 1048140717}
-  timer: 60
+  score: {fileID: 1388996273}
+  timer: 5
   levelIndex: 3
 --- !u!4 &1235912522 stripped
 Transform:
@@ -1200,8 +1202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f3a976ef193074b9f783572fc88a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSelect: {fileID: 0}
   levelIndex: 0
+  score: 0
+  highScore: 0
   chosenLevel: 0
 --- !u!4 &1355260200
 Transform:

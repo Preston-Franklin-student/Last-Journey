@@ -12,9 +12,11 @@ namespace LastJourney
 
         public int score = 0;
         public int highScore = 0;
+        public string level;
 
         void Start()
         {
+            highScore = 
             highScore = PlayerPrefs.GetInt("HighScore", 0);
             highScoreDisplay.text = "Highscore: " + highScore.ToString();
         }

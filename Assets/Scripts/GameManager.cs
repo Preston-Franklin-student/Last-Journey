@@ -8,8 +8,9 @@ namespace LastJourney
     public class GameManager : MonoBehaviour
     {
         public static GameManager instance;
-        public LevelSelect levelSelect;
         public int levelIndex;
+        public int score;
+        public int highScore;
         public int chosenLevel = 0;
         void Awake()
         {
@@ -28,9 +29,11 @@ namespace LastJourney
         {
             SceneManager.LoadScene(0);
         }
-        public void TransferLevelIndex(int levelNumber)
+        public void TransferLevelIndex(int levelNumber, int score, int highScore)
         {
             GameManager.instance.levelIndex = levelNumber;
+            instance.score = score;
+            instance.highScore = highScore;
         }
 
         public void GameOver()
@@ -45,6 +48,7 @@ namespace LastJourney
 
         public void LoadChosenLevel()
         {
+            LevelSelect levelSelect = FindFirstObjectByType<LevelSelect>();
             chosenLevel = levelSelect.currentLevelIndex + 2;
             SceneManager.LoadScene(chosenLevel);
         }

@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.Tilemaps;
-using UnityEngine.UIElements;
 
 namespace LastJourney
 {
@@ -15,6 +13,7 @@ namespace LastJourney
         public TileBase tileSurface;
         public TileBase tileGround;
         public ItemGenerator generator;
+        public BackgroundGenerator generator2;
 
         public List<int> enemyIndex = new List<int>();
 
@@ -33,6 +32,7 @@ namespace LastJourney
         void Start()
         {
             StartCoroutine(GenerateLevel());
+            generator2.GenerateBackground();
         }
         //Destroys everything in the previous section and builds a new one
         public void NewSection()

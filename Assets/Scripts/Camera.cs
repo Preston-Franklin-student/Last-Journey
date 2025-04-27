@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using LastJourney;
 using UnityEngine;
 
-namespace TowerDefense
+namespace LastJourney
 {
     public class Camera : MonoBehaviour
     {
