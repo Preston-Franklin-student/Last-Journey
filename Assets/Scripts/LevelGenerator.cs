@@ -17,17 +17,21 @@ namespace LastJourney
 
         public List<int> enemyIndex = new List<int>();
 
+        int generateSurfaceEnemy;
         public int minHeight = 1;
         public int maxHeight = 3;
         public int minAmount = 2;
         public int maxAmount = 10;
         public int minEnemyChance;
         public int maxEnemyChance;
-
+        public int minPitSpawnChance;
+        public int maxPitSpawnChance;
         public int enemyCounter = 0;
+
+        bool generatedSurfaceEnemy = false;
         bool generateEnemy = false;
         public bool canGenerateDuplicateHeight;
-
+        public bool canGeneratePitFalls;
         // Start is called before the first frame update
         void Start()
         {
@@ -79,6 +83,9 @@ namespace LastJourney
             int previousColumnHeight;
             int columnAmount = 0;
             int maxColumnAmount = Random.Range(minAmount, maxAmount + 1);
+            int previousMaxColumnAmount;
+            int spawnPitFall;
+            int columnHeightBeforePitFall = 0;
             int xposition = -1;
             int yposition = -1;
 
@@ -101,11 +108,20 @@ namespace LastJourney
             for (int x = 0; x < 186; x++)
             {
                 previousColumnHeight = columnHeight;
+                previousMaxColumnAmount = maxColumnAmount;
+                spawnPitFall = Random.Range(minPitSpawnChance, maxPitSpawnChance + 1);
                 if (186 - x <= maxColumnAmount && columnAmount == maxColumnAmount)
                 {
                     columnHeight = 3;
                     columnAmount = 0;
                     maxColumnAmount = 186 - x;
+                }
+                else if (canGeneratePitFalls == true && columnAmount == maxColumnAmount && spawnPitFall == minPitSpawnChance && previousColumnHeight != 0 && 186 - x > maxColumnAmount * 2)
+                {
+                    columnHeightBeforePitFall = previousColumnHeight;
+                    columnHeight = 0;
+                    columnAmount = 0;
+                    maxColumnAmount = Random.Range(minAmount, maxAmount + 1);
                 }
                 else if (columnAmount == maxColumnAmount)
                 {
@@ -124,7 +140,9 @@ namespace LastJourney
                         columnAmount = 0;
                         maxColumnAmount = Random.Range(minAmount, maxAmount + 1);
                     }
-                    if (columnHeight > previousColumnHeight + 2) columnHeight = previousColumnHeight + 2;
+                    if (previousColumnHeight == 0 && previousMaxColumnAmount >= 4) columnHeight = columnHeightBeforePitFall;
+                    else if (previousColumnHeight == 0 && columnHeight > columnHeightBeforePitFall + 2) columnHeight = columnHeightBeforePitFall + 2;
+                    else if (columnHeight > previousColumnHeight + 2) columnHeight = previousColumnHeight + 2;
                 }
                 else
                 {
@@ -132,14 +150,24 @@ namespace LastJourney
                 }
                 if(columnHeight != 0)
                 {
-                    for (int i = 0; i < columnHeight; i++)
+                    for (int i = 0; i < columnHeight - 1; i++)
                     {
                         yposition += 1;
                         Vector3Int position = new Vector3Int(xposition, yposition, 0);
                         tilemap.SetTile(position, tileGround);
                     }
-                    Vector3Int newPosition = new Vector3Int(xposition, yposition, 0);
-                    tilemap.SetTile(newPosition, tileSurface);
+                    yposition += 1;
+                    generateSurfaceEnemy = Random.Range(1, maxEnemyChance);
+                    if (generateSurfaceEnemy == 1 && generator.targetEnemyIndex == generator.surfaceEnemyIndex)
+                    {
+                        generator.GenerateSurfaceEnemy(xposition, yposition);
+                        generatedSurfaceEnemy = true;
+                    }
+                    else
+                    {
+                        Vector3Int newPosition = new Vector3Int(xposition, yposition, 0);
+                        tilemap.SetTile(newPosition, tileSurface);
+                    }
 
                     //This code is used to generate enemies, static hazards, and clocks
                     if (generator.maxEnemyIndex == enemyCounter) generator.maxEnemyIndex++;
@@ -151,12 +179,15 @@ namespace LastJourney
                         generator.spikeAmount = 1;
                     }
                     if (generator.spikeAmount == 1) itemGenerator = Random.Range(1, maxEnemyChance + 1);
-                    if (itemGenerator == 1 && columnHeight == previousColumnHeight && x > 10 && generator.targetEnemyIndex != generator.spikeIndex)
+                    if (itemGenerator == 1 && columnHeight == previousColumnHeight && x > 10 && generatedSurfaceEnemy == false)
                     {
-                        generator.GenerateEnemy(xposition, yposition);
-                        generateEnemy = true;
+                        if (generator.targetEnemyIndex != generator.surfaceEnemyIndex && generator.targetEnemyIndex != generator.spikeIndex)
+                        {
+                            generator.GenerateEnemy(xposition, yposition);
+                            generateEnemy = true;
+                        }
                     }
-                    if ((itemGenerator == 1 && generator.spikeAmount == 1 || generator.spikeAmount != 1) && generator.spikeCooldown == 0)
+                    if ((itemGenerator == 1 && generator.spikeAmount == 1 || generator.spikeAmount != 1) && generator.spikeCooldown == 0 && generatedSurfaceEnemy == false)
                     {
                         if (generator.targetEnemyIndex == generator.spikeIndex && columnHeight == previousColumnHeight)
                         {
@@ -165,9 +196,10 @@ namespace LastJourney
                         }
                     }
                     itemGenerator = Random.Range(1, 101);
-                    if (itemGenerator == 1 && generateEnemy == false) generator.GenerateClock(xposition, yposition);
+                    if (itemGenerator == 1 && generateEnemy == false && generatedSurfaceEnemy == false) generator.GenerateClock(xposition, yposition);
                 }
                 generateEnemy = false;
+                generatedSurfaceEnemy = false;
                 yposition = -1;
                 xposition += 1;
                 if (generator.spikeCooldown == 10) generator.spikeCooldown = 0;

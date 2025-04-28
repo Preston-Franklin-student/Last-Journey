@@ -9,6 +9,7 @@ namespace LastJourney
     {
         public Text scoreDisplay;
         public Text highScoreDisplay;
+        public HighscoreDatabase highscoreDatabase;
 
         public int score = 0;
         public int highScore = 0;
@@ -16,14 +17,12 @@ namespace LastJourney
 
         void Start()
         {
-            highScore = 
-            highScore = PlayerPrefs.GetInt("HighScore", 0);
+            highScore = highscoreDatabase.FindHighScore(level);
             highScoreDisplay.text = "Highscore: " + highScore.ToString();
         }
         void OnDestroy()
         {
-            PlayerPrefs.SetInt("HighScore", highScore);
-            PlayerPrefs.Save();
+            highscoreDatabase.StoreHighScore(level, highScore);
         }
 
         public void GainScore()

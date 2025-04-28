@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 namespace LastJourney
 {
@@ -21,8 +23,11 @@ namespace LastJourney
         public int targetEnemyIndex;
         public int spikeCooldown;
         int enemyCounter = 0;
+        public int surfaceEnemyIndex;
 
         public GameObject blueClock;
+        public Tilemap tilemap;
+        public TileBase surfaceEnemySprite;
 
         //This function is used to generate clocks on demand as well as determining
         // what clock will be generated
@@ -62,6 +67,17 @@ namespace LastJourney
                 spikeAmount = 1;
                 spikeCooldown++;
             }
+        }
+
+        public void GenerateSurfaceEnemy(int xposition, int yposition)
+        {
+            Vector3Int position = new Vector3Int(xposition, yposition, 0);
+            tilemap.SetTile(position, surfaceEnemySprite);
+
+            generator.transform.position = new Vector2(xposition, 0);
+            float generatoryposition = generator.transform.position.y + yposition;
+            generator.transform.position = new Vector2(xposition + 0.5f, generatoryposition + 0.5f);
+            Instantiate(enemies[surfaceEnemyIndex], transform.position, transform.rotation);
         }
     }
 }

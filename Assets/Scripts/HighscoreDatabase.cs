@@ -6,12 +6,15 @@ namespace LastJourney
 {
     public class HighscoreDatabase : MonoBehaviour
     {
-        public int[] highScores;
-
         public int FindHighScore(string level)
         {
-            highScores[0] = PlayerPrefs.GetInt(level, 0);
-            return 1;
+            return PlayerPrefs.GetInt(level);
+        }
+
+        public void StoreHighScore(string level, int highscore)
+        {
+            PlayerPrefs.SetInt(level, highscore);
+            PlayerPrefs.Save();
         }
     }
 }

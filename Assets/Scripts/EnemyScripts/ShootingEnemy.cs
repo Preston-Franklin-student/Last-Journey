@@ -7,14 +7,24 @@ namespace LastJourney
     public class ShootingEnemy : MonoBehaviour
     {
         public Projectile projectilePrefab;
-
-        private void OnTriggerEnter2D(Collider2D other)
+        bool isfiring = false;
+        public int fireRate;
+        private void OnTriggerStay2D(Collider2D other)
         {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "Player" && isfiring == false)
             {
-                Projectile projectile = Instantiate(projectilePrefab, transform.position, transform.rotation).GetComponent<Projectile>();
-                projectile.Init(other.gameObject);
+                StartCoroutine(Fire(other));
             }
+        }
+
+        IEnumerator Fire(Collider2D other)
+        {
+            isfiring = true;
+            yield return new WaitForSeconds(0.5f);
+            Projectile projectile = Instantiate(projectilePrefab, transform.position, transform.rotation).GetComponent<Projectile>();
+            projectile.Init(other.gameObject);
+            yield return new WaitForSeconds(fireRate);
+            isfiring = false;
         }
     }
 }
