@@ -20,7 +20,7 @@ namespace LastJourney
         IEnumerator Fire(Collider2D other)
         {
             isfiring = true;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             Projectile projectile = Instantiate(projectilePrefab, transform.position, transform.rotation).GetComponent<Projectile>();
             projectile.Init(other.gameObject);
             yield return new WaitForSeconds(fireRate);

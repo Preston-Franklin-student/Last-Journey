@@ -11,6 +11,7 @@ namespace LastJourney
         public Rigidbody2D rigidbody;
         public Timer timer;
         public int speed;
+        public int decreaseTime;
 
         public void Init(GameObject target)
         {
@@ -25,12 +26,12 @@ namespace LastJourney
             yield return new WaitForSeconds(5);
             Destroy(gameObject);
         }
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.tag == "Ground") Destroy(gameObject);
             if (other.gameObject.tag == "Player")
             {
-                
+                Timer timer = FindFirstObjectByType<Timer>();
+                timer.DecreaseTime(decreaseTime);
             }
         }
         //For future use:

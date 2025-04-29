@@ -142,7 +142,7 @@ namespace LastJourney
                     }
                     if (previousColumnHeight == 0 && previousMaxColumnAmount >= 4) columnHeight = columnHeightBeforePitFall;
                     else if (previousColumnHeight == 0 && columnHeight > columnHeightBeforePitFall + 2) columnHeight = columnHeightBeforePitFall + 2;
-                    else if (columnHeight > previousColumnHeight + 2) columnHeight = previousColumnHeight + 2;
+                    else if (columnHeight > previousColumnHeight + 2 && previousColumnHeight != 0) columnHeight = previousColumnHeight + 2;
                 }
                 else
                 {
