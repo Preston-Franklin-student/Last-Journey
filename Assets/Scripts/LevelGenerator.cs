@@ -26,6 +26,7 @@ namespace LastJourney
         public int maxEnemyChance;
         public int minPitSpawnChance;
         public int maxPitSpawnChance;
+        public int maxClockChance;
         public int enemyCounter = 0;
 
         bool generatedSurfaceEnemy = false;
@@ -158,7 +159,7 @@ namespace LastJourney
                     }
                     yposition += 1;
                     generateSurfaceEnemy = Random.Range(1, maxEnemyChance);
-                    if (generateSurfaceEnemy == 1 && generator.targetEnemyIndex == generator.surfaceEnemyIndex)
+                    if (generateSurfaceEnemy == 1 && generator.targetEnemyIndex == generator.surfaceEnemyIndex && x > 10)
                     {
                         generator.GenerateSurfaceEnemy(xposition, yposition);
                         generatedSurfaceEnemy = true;
@@ -195,7 +196,7 @@ namespace LastJourney
                             generateEnemy = true;
                         }
                     }
-                    itemGenerator = Random.Range(1, 101);
+                    itemGenerator = Random.Range(1, maxClockChance);
                     if (itemGenerator == 1 && generateEnemy == false && generatedSurfaceEnemy == false) generator.GenerateClock(xposition, yposition);
                 }
                 generateEnemy = false;

@@ -13,6 +13,8 @@ namespace LastJourney
         float maxJumpHeight;
 
         public int triggerNumber;
+        public int jumpHeight;
+        public int jumpDelay;
         public float jumpForce = 4;
         public float fallSpeed;
 
@@ -45,14 +47,14 @@ namespace LastJourney
             while(true)
             {
                 fallSpeed = 0;
-                maxJumpHeight = transform.position.y + 4;
+                maxJumpHeight = transform.position.y + jumpHeight;
                 while (rigidbody.transform.position.y < maxJumpHeight)
                 {
                     transform.Translate(Vector2.up * Time.deltaTime * jumpForce);
                     yield return new WaitForSeconds(0.001f);
                 }
                 fallSpeed = -5;
-                yield return new WaitForSeconds(3);
+                yield return new WaitForSeconds(jumpDelay);
             }
         }
     }
