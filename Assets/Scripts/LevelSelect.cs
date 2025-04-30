@@ -21,15 +21,5 @@ namespace LastJourney
                 else levels[i].SetActive(false);
             }
         }
-
-        public void IncreaseIndex()
-        {
-            levelSelect.currentLevelIndex++;
-        }
-
-        public void DecreaseIndex()
-        {
-            levelSelect.currentLevelIndex--;
-        }
     }
 }

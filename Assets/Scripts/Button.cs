@@ -24,5 +24,9 @@ namespace LastJourney
         {
             gameManager.LoadChosenLevel();
         }
+        public void Quit()
+        {
+            Application.Quit();
+        }
     }
 }

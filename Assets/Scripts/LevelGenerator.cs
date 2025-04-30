@@ -47,7 +47,8 @@ namespace LastJourney
             DestroyClocks();
             if (minEnemyChance != maxEnemyChance) maxEnemyChance--;
             if (enemyCounter == enemyIndex.Count) enemyCounter--;
-            if (score.score == enemyIndex[enemyCounter]) enemyCounter++; 
+            if (score.score == enemyIndex[enemyCounter]) enemyCounter++;
+            generator.maxClockCounter++;
             player.transform.position = new Vector2(0, 3.5f);
             StartCoroutine(GenerateLevel());
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19177274, g: 0.6743155, b: 0.9116213, a: 1}
+  m_IndirectSpecularColor: {r: 0.1918942, g: 0.67480475, b: 0.912108, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -306,8 +306,8 @@ MonoBehaviour:
   - {fileID: 1401374517992716497, guid: 9e697ebb1072b5b4bb3b90f65a48c29b, type: 3}
   - {fileID: 9108369390089721629, guid: 97ac276bf22164b43a1250908e5f453d, type: 3}
   - {fileID: 6520106012102118229, guid: 1dd747368360f8e4ea287044ad2b4142, type: 3}
-  minEnemyIndex: 1
-  maxEnemyIndex: 3
+  minEnemyIndex: 0
+  maxEnemyIndex: 1
   spikeIndex: -1
   minSpikeAmount: 2
   maxSpikeAmount: 4
@@ -316,7 +316,10 @@ MonoBehaviour:
   targetEnemyIndex: 0
   spikeCooldown: 0
   surfaceEnemyIndex: 0
+  maxClockCounter: 0
   blueClock: {fileID: 3675840206169110759, guid: 8b1db71abb70bf340b15d3ad8fb6af48, type: 3}
+  greenClock: {fileID: 3675840206169110759, guid: 7f38ec96e612a8b43a69dd5b9fdc9f72, type: 3}
+  redClock: {fileID: 3675840206169110759, guid: d910d3eb541b7ba4c951dbfc6214ea3d, type: 3}
   tilemap: {fileID: 945127046}
   surfaceEnemySprite: {fileID: 11400000, guid: 7c03bd313edb8a04daa5be7e3054989e, type: 2}
 --- !u!4 &333593903

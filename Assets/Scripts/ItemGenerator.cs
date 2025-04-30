@@ -22,10 +22,14 @@ namespace LastJourney
         public int generateSpike;
         public int targetEnemyIndex;
         public int spikeCooldown;
-        int enemyCounter = 0;
         public int surfaceEnemyIndex;
+        int enemyCounter = 0;
+        int clockCounter;
+        public int maxClockCounter = 5;
 
         public GameObject blueClock;
+        public GameObject greenClock;
+        public GameObject redClock;
         public Tilemap tilemap;
         public TileBase surfaceEnemySprite;
 
@@ -37,7 +41,11 @@ namespace LastJourney
             float generatoryposition = generator.transform.position.y + yposition;
             generator.transform.position = new Vector2(xposition + 0.5f, generatoryposition + 1.5f);
 
-            Instantiate(blueClock, transform.position, transform.rotation);
+            clockCounter = Random.Range(0, maxClockCounter);
+
+            if (clockCounter < 5) Instantiate(blueClock, transform.position, transform.rotation);
+            else if (clockCounter < 25) Instantiate(greenClock, transform.position, transform.rotation);
+            else Instantiate(redClock, transform.position, transform.rotation);
         }
         //This function is used to generate enemies on demand as well as determining
         //what enemy will be generated
