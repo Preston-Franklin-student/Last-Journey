@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a04ef3d4336f8a44c83991d4bc3f8e4e
+guid: 42ef724b64803664ca8384ddaadb357b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3502715887467967171
-    second: Button1_0
+      213: -1408437573596956881
+    second: TitleScreen_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button1_0
+      name: TitleScreen_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c235ad9a852c9030800000000000000
-      internalID: 3502715887467967171
+      spriteID: f27b0713d79347ce0800000000000000
+      internalID: -1408437573596956881
       vertices: []
       indices: 
       edges: []
@@ -129,7 +129,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Button1_0: 3502715887467967171
+      TitleScreen_0: -1408437573596956881
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
