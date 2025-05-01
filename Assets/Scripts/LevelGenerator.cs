@@ -45,12 +45,14 @@ namespace LastJourney
             tilemap.ClearAllTiles();
             DestroyEnemies();
             DestroyClocks();
+            DestroyBackgroundObjects();
             if (minEnemyChance != maxEnemyChance) maxEnemyChance--;
             if (enemyCounter == enemyIndex.Count) enemyCounter--;
             if (score.score == enemyIndex[enemyCounter]) enemyCounter++;
             generator.maxClockCounter++;
             player.transform.position = new Vector2(0, 3.5f);
             StartCoroutine(GenerateLevel());
+            generator2.GenerateBackground();
         }
         //Destroys all enemies that were present in the previous section when
         //the player progresses to the next one
@@ -73,6 +75,18 @@ namespace LastJourney
             foreach (GameObject target in clocks)
             {
                 if (target.name.Contains("Clock"))
+                {
+                    Destroy(target);
+                }
+            }
+        }
+
+        private void DestroyBackgroundObjects()
+        {
+            GameObject[] backgroundObject = GameObject.FindGameObjectsWithTag("BackgroundObject");
+            foreach (GameObject target in backgroundObject)
+            {
+                if (target.name.Contains("Clone"))
                 {
                     Destroy(target);
                 }

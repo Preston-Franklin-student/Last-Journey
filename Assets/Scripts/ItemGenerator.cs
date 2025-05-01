@@ -25,7 +25,7 @@ namespace LastJourney
         public int surfaceEnemyIndex;
         int enemyCounter = 0;
         int clockCounter;
-        public int maxClockCounter = 5;
+        public int maxClockCounter = 1;
 
         public GameObject blueClock;
         public GameObject greenClock;

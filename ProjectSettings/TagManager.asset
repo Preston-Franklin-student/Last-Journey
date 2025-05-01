@@ -8,6 +8,7 @@ TagManager:
   - Door
   - Enemy
   - Clock
+  - BackgroundObject
   layers:
   - Default
   - TransparentFX

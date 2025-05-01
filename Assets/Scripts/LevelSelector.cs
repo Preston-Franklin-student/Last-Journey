@@ -10,7 +10,7 @@ namespace LastJourney
         public LevelSelect levelSelect;
         public void IncreaseIndex()
         {
-            if(levelSelect.currentLevelIndex < 1) levelSelect.currentLevelIndex++;
+            if(levelSelect.currentLevelIndex < levelSelect.maxLevelIndex) levelSelect.currentLevelIndex++;
         }
 
         public void DecreaseIndex()

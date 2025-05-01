@@ -12,6 +12,11 @@ namespace LastJourney
         {
             gameManager = FindFirstObjectByType<GameManager>();
         }
+
+        public void Tutorial()
+        {
+            gameManager.TutorialScene();
+        }
         public void TitleScreen()
         {
             gameManager.TitleScreen();

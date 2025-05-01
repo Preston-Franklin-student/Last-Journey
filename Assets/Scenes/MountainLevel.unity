@@ -303,8 +303,8 @@ MonoBehaviour:
   generator: {fileID: 333593902}
   score: {fileID: 1388996273}
   enemies:
-  - {fileID: 1401374517992716497, guid: 9e697ebb1072b5b4bb3b90f65a48c29b, type: 3}
   - {fileID: 9108369390089721629, guid: 97ac276bf22164b43a1250908e5f453d, type: 3}
+  - {fileID: 1401374517992716497, guid: 9e697ebb1072b5b4bb3b90f65a48c29b, type: 3}
   - {fileID: 6520106012102118229, guid: 1dd747368360f8e4ea287044ad2b4142, type: 3}
   minEnemyIndex: 0
   maxEnemyIndex: 1
@@ -315,7 +315,7 @@ MonoBehaviour:
   generateSpike: 0
   targetEnemyIndex: 0
   spikeCooldown: 0
-  surfaceEnemyIndex: 0
+  surfaceEnemyIndex: 1
   maxClockCounter: 0
   blueClock: {fileID: 3675840206169110759, guid: 8b1db71abb70bf340b15d3ad8fb6af48, type: 3}
   greenClock: {fileID: 3675840206169110759, guid: 7f38ec96e612a8b43a69dd5b9fdc9f72, type: 3}
@@ -642,7 +642,7 @@ MonoBehaviour:
   tileGround: {fileID: 11400000, guid: a697ede15ddd1ce408c61341e30eef54, type: 2}
   generator: {fileID: 333593902}
   generator2: {fileID: 0}
-  enemyIndex: 070000000f0000001e000000
+  enemyIndex: 050000000c00000014000000
   minHeight: 3
   maxHeight: 7
   minAmount: 2

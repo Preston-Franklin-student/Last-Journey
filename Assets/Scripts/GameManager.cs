@@ -24,7 +24,10 @@ namespace LastJourney
                 DontDestroyOnLoad(gameObject);
             }
         }
-
+        public void TutorialScene()
+        {
+            SceneManager.LoadScene(2);
+        }
         public void TitleScreen()
         {
             SceneManager.LoadScene(0);
@@ -49,7 +52,7 @@ namespace LastJourney
         public void LoadChosenLevel()
         {
             LevelSelect levelSelect = FindFirstObjectByType<LevelSelect>();
-            chosenLevel = levelSelect.currentLevelIndex + 2;
+            chosenLevel = levelSelect.currentLevelIndex + 3;
             print(chosenLevel);
             SceneManager.LoadScene(chosenLevel);
         }

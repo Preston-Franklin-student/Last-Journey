@@ -10,6 +10,7 @@ namespace LastJourney
         public GameObject[] levels;
         public int levelIndex;
         public int currentLevelIndex = 1;
+        public int maxLevelIndex;
         public bool levelButton;
 
         // Update is called once per frame

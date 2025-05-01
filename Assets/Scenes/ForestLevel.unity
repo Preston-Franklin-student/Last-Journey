@@ -317,7 +317,10 @@ MonoBehaviour:
   targetEnemyIndex: 0
   spikeCooldown: 0
   surfaceEnemyIndex: -1
+  maxClockCounter: 5
   blueClock: {fileID: 3675840206169110759, guid: 8b1db71abb70bf340b15d3ad8fb6af48, type: 3}
+  greenClock: {fileID: 3675840206169110759, guid: 7f38ec96e612a8b43a69dd5b9fdc9f72, type: 3}
+  redClock: {fileID: 3675840206169110759, guid: d910d3eb541b7ba4c951dbfc6214ea3d, type: 3}
   tilemap: {fileID: 0}
   surfaceEnemySprite: {fileID: 0}
 --- !u!4 &333593903
