@@ -25,7 +25,7 @@ namespace LastJourney
         void Update()
         {
             Player player = FindFirstObjectByType<Player>();
-            if (triggerNumber == 0 && transform.position.x - player.transform.position.x <= 15 && startMoving == false)
+            if (triggerNumber == 0 && transform.position.x - player.transform.position.x <= 20 && startMoving == false)
             {
                 direction = -1;
                 startMoving = true;

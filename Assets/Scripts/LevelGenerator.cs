@@ -178,6 +178,7 @@ namespace LastJourney
                     {
                         generator.GenerateSurfaceEnemy(xposition, yposition);
                         generatedSurfaceEnemy = true;
+                        print("true");
                     }
                     else
                     {
@@ -205,7 +206,7 @@ namespace LastJourney
                     }
                     if ((itemGenerator == 1 && generator.spikeAmount == 1 || generator.spikeAmount != 1) && generator.spikeCooldown == 0 && generatedSurfaceEnemy == false)
                     {
-                        if (generator.targetEnemyIndex == generator.spikeIndex && columnHeight == previousColumnHeight)
+                        if (generator.targetEnemyIndex == generator.spikeIndex && columnHeight == previousColumnHeight && x > 10)
                         {
                             generator.GenerateSpike(xposition, yposition);
                             generateEnemy = true;
@@ -218,7 +219,7 @@ namespace LastJourney
                 generatedSurfaceEnemy = false;
                 yposition = -1;
                 xposition += 1;
-                if (generator.spikeCooldown == 10) generator.spikeCooldown = 0;
+                if (generator.spikeCooldown == 5) generator.spikeCooldown = 0;
                 else if (generator.spikeCooldown != 0) generator.spikeCooldown++;
                 yield return new WaitForSeconds(0.001f);
             }

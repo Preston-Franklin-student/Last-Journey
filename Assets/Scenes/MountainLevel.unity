@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1918942, g: 0.67480475, b: 0.912108, a: 1}
+  m_IndirectSpecularColor: {r: 0.19177274, g: 0.6743155, b: 0.9116213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -316,7 +316,7 @@ MonoBehaviour:
   targetEnemyIndex: 0
   spikeCooldown: 0
   surfaceEnemyIndex: 1
-  maxClockCounter: 0
+  maxClockCounter: 1
   blueClock: {fileID: 3675840206169110759, guid: 8b1db71abb70bf340b15d3ad8fb6af48, type: 3}
   greenClock: {fileID: 3675840206169110759, guid: 7f38ec96e612a8b43a69dd5b9fdc9f72, type: 3}
   redClock: {fileID: 3675840206169110759, guid: d910d3eb541b7ba4c951dbfc6214ea3d, type: 3}
@@ -638,8 +638,8 @@ MonoBehaviour:
   player: {fileID: 1042089454}
   score: {fileID: 1388996273}
   tilemap: {fileID: 945127046}
-  tileSurface: {fileID: 11400000, guid: 0601f91dc10a31341a0db416515f8f3d, type: 2}
-  tileGround: {fileID: 11400000, guid: a697ede15ddd1ce408c61341e30eef54, type: 2}
+  tileSurface: {fileID: 11400000, guid: 2dec613f6a99e3a439db1ac4d17fc430, type: 2}
+  tileGround: {fileID: 11400000, guid: f6447655c1852d549a07eaf2c152c1e0, type: 2}
   generator: {fileID: 333593902}
   generator2: {fileID: 0}
   enemyIndex: 050000000c00000014000000
@@ -651,7 +651,7 @@ MonoBehaviour:
   maxEnemyChance: 10
   minPitSpawnChance: 1
   maxPitSpawnChance: 2
-  maxClockChance: 76
+  maxClockChance: 51
   enemyCounter: 0
   canGenerateDuplicateHeight: 0
   canGeneratePitFalls: 1
@@ -1021,7 +1021,7 @@ MonoBehaviour:
   timerDisplay: {fileID: 1048140717}
   score: {fileID: 1388996273}
   timer: 60
-  levelIndex: 3
+  levelIndex: 4
 --- !u!1 &1355260198
 GameObject:
   m_ObjectHideFlags: 0
