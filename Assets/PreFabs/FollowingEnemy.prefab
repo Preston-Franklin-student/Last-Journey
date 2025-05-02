@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 7044974609521154480}
   m_Layer: 0
   m_Name: FollowingEnemy
-  m_TagString: Enemy
+  m_TagString: LevelAssets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

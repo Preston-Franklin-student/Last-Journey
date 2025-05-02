@@ -7,6 +7,7 @@ namespace LastJourney
 {
     public class Clock : MonoBehaviour
     {
+        public GameObject particleEffect;
         public int increaseTime;
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -14,6 +15,7 @@ namespace LastJourney
             {
                 Timer timer = FindFirstObjectByType<Timer>();
                 timer.IncreaseTime(increaseTime);
+                Instantiate(particleEffect, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
         }

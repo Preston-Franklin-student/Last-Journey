@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 846069574467053768}
   m_Layer: 2
   m_Name: ShootingEnemy 1
-  m_TagString: Enemy
+  m_TagString: LevelAssets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

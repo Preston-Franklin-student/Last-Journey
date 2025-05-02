@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 191915277187507993}
   m_Layer: 0
   m_Name: GreenClock
-  m_TagString: Untagged
+  m_TagString: LevelAssets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f399a91ee60c7ab419d39542bbdfe31d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increaseTime: 30
+  particleEffect: {fileID: 4565091107798911924, guid: 53205d98b2c2eb54a81a66432b6501d2, type: 3}
+  increaseTime: 15
 --- !u!61 &191915277187507993
 BoxCollider2D:
   m_ObjectHideFlags: 0

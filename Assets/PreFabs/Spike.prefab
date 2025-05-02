@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1033886523
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -8176377701904269715, guid: cdf9f37942f96a941b40bc183b889d4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7617642691708532047}
   m_Layer: 0
   m_Name: Spike
-  m_TagString: Enemy
+  m_TagString: LevelAssets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -43,9 +43,7 @@ namespace LastJourney
         public void NewSection()
         {
             tilemap.ClearAllTiles();
-            DestroyEnemies();
-            DestroyClocks();
-            DestroyBackgroundObjects();
+            DestroyLevelAssets();
             if (minEnemyChance != maxEnemyChance) maxEnemyChance--;
             if (enemyCounter == enemyIndex.Count) enemyCounter--;
             if (score.score == enemyIndex[enemyCounter]) enemyCounter++;
@@ -54,12 +52,11 @@ namespace LastJourney
             StartCoroutine(GenerateLevel());
             generator2.GenerateBackground();
         }
-        //Destroys all enemies that were present in the previous section when
-        //the player progresses to the next one
-        private void DestroyEnemies()
+        //Destroys all assets in the current section
+        private void DestroyLevelAssets()
         {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            foreach(GameObject target in enemies)
+            GameObject[] levelAssets = GameObject.FindGameObjectsWithTag("LevelAssets");
+            foreach(GameObject target in levelAssets)
             {
                 if(target.name.Contains("Clone"))
                 {
@@ -67,31 +64,7 @@ namespace LastJourney
                 }
             }
         }
-        //Destroys all clock remaining in the previous section when the player
-        //progresses to the next one
-        private void DestroyClocks()
-        {
-            GameObject[] clocks = GameObject.FindGameObjectsWithTag("Clock");
-            foreach (GameObject target in clocks)
-            {
-                if (target.name.Contains("Clock"))
-                {
-                    Destroy(target);
-                }
-            }
-        }
 
-        private void DestroyBackgroundObjects()
-        {
-            GameObject[] backgroundObject = GameObject.FindGameObjectsWithTag("BackgroundObject");
-            foreach (GameObject target in backgroundObject)
-            {
-                if (target.name.Contains("Clone"))
-                {
-                    Destroy(target);
-                }
-            }
-        }
         //This code generates a new section
         IEnumerator GenerateLevel()
         {
