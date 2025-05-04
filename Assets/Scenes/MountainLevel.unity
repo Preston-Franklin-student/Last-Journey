@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1918942, g: 0.67480475, b: 0.912108, a: 1}
+  m_IndirectSpecularColor: {r: 0.19177274, g: 0.6743155, b: 0.9116213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -321,7 +321,7 @@ MonoBehaviour:
   greenClock: {fileID: 3675840206169110759, guid: 7f38ec96e612a8b43a69dd5b9fdc9f72, type: 3}
   redClock: {fileID: 3675840206169110759, guid: d910d3eb541b7ba4c951dbfc6214ea3d, type: 3}
   tilemap: {fileID: 945127046}
-  surfaceEnemySprite: {fileID: 11400000, guid: 7c03bd313edb8a04daa5be7e3054989e, type: 2}
+  surfaceEnemySprite: {fileID: 11400000, guid: 05bc69fbcca6baa408e54d7a3e6a37c8, type: 2}
 --- !u!4 &333593903
 Transform:
   m_ObjectHideFlags: 0
@@ -395,10 +395,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -347578315
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 7795628385008135868, guid: eacee75fe61421848bb587f9bd65fe28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -418,7 +418,7 @@ Transform:
   m_GameObject: {fileID: 489690170}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 197, y: 3.5, z: 0}
+  m_LocalPosition: {x: 197, y: 3.996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -462,7 +462,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 1.5, y: 2}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -638,10 +638,10 @@ MonoBehaviour:
   player: {fileID: 1042089454}
   score: {fileID: 1388996273}
   tilemap: {fileID: 945127046}
-  tileSurface: {fileID: 11400000, guid: 2dec613f6a99e3a439db1ac4d17fc430, type: 2}
+  tileSurface: {fileID: 11400000, guid: 9aa271ebb029fc241bf284a507a8620c, type: 2}
   tileGround: {fileID: 11400000, guid: f6447655c1852d549a07eaf2c152c1e0, type: 2}
   generator: {fileID: 333593902}
-  generator2: {fileID: 0}
+  generator2: {fileID: 2022195559}
   enemyIndex: 050000000c00000014000000
   minHeight: 3
   maxHeight: 7
@@ -919,7 +919,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6981966428424797528, guid: d80a1e7cbd7da5642a6f91515a251b96, type: 3}
   m_PrefabInstance: {fileID: 2506951125670337532}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1436843239}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf4d3195f1746da4db014680e048b3de, type: 3}
@@ -1020,8 +1020,11 @@ MonoBehaviour:
   gameManager: {fileID: 1355260199}
   timerDisplay: {fileID: 1048140717}
   score: {fileID: 1388996273}
+  player: {fileID: 1042089454}
+  player2: {fileID: 1436843239}
   timer: 60
   levelIndex: 4
+  destroyPlayer: 0
 --- !u!1 &1355260198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,6 +1123,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1436843239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8698558907294471432, guid: d80a1e7cbd7da5642a6f91515a251b96, type: 3}
+  m_PrefabInstance: {fileID: 2506951125670337532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1517221188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,6 +1246,59 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 501.5, y: 316, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2022195558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2022195560}
+  - component: {fileID: 2022195559}
+  m_Layer: 0
+  m_Name: BackgroundGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2022195559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022195558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922ddc5d73d318e48b8b88c8fd0f78fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backGroundObjects:
+  - {fileID: 5589741688307868906, guid: ddddba174d121a743a6b8ba6776ed25b, type: 3}
+  - {fileID: 6778062251802991199, guid: 8ede0c6d5281ea14eb3191d4210d6bcb, type: 3}
+  - {fileID: 2181507617303112000, guid: 1c1800e747bb046429f9ed183292e000, type: 3}
+  - {fileID: 6991518461464773337, guid: f42a4ed509fc87740893ad3489e32d0d, type: 3}
+  - {fileID: 3785872898059469912, guid: 70f429ce23da68e4eb8b10eed1535a69, type: 3}
+  generator: {fileID: 2022195559}
+  minTransformation: 9
+  maxTransformation: 13
+--- !u!4 &2022195560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022195558}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.2725754, y: 5.2798038, z: -0.9249595}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1399,6 +1460,10 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 241497111}
+    - target: {fileID: 6981966428424797528, guid: d80a1e7cbd7da5642a6f91515a251b96, type: 3}
+      propertyPath: playerDeathEffect
+      value: 
+      objectReference: {fileID: 2651593008958419576, guid: 2e5967af85568f14f8bbc3452f44fd98, type: 3}
     - target: {fileID: 8698558907294471432, guid: d80a1e7cbd7da5642a6f91515a251b96, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1415,6 +1480,7 @@ SceneRoots:
   - {fileID: 1355260200}
   - {fileID: 649660413}
   - {fileID: 333593903}
+  - {fileID: 2022195560}
   - {fileID: 241497112}
   - {fileID: 2506951125670337532}
   - {fileID: 308596069}

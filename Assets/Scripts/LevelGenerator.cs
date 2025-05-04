@@ -151,7 +151,6 @@ namespace LastJourney
                     {
                         generator.GenerateSurfaceEnemy(xposition, yposition);
                         generatedSurfaceEnemy = true;
-                        print("true");
                     }
                     else
                     {

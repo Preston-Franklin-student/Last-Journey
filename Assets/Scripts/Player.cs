@@ -11,6 +11,7 @@ namespace LastJourney
 
         public Camera camera;
         public Player player;
+        public GameObject playerDeathEffect;
 
         float maxJumpHeight;
         public int fallSpeed = -10;
@@ -21,6 +22,11 @@ namespace LastJourney
         void Start()
         {
             rigidbody = GetComponent<Rigidbody2D>();
+        }
+
+        public void PlayDeathEffect()
+        {
+            Instantiate(playerDeathEffect, transform.position, Quaternion.identity);
         }
         private void Update()
         {
@@ -80,7 +86,6 @@ namespace LastJourney
             fallSpeed = -10;
             isJumping = false;
         }
-
         private void OnTriggerEnter2D(Collider2D other)
         {
  

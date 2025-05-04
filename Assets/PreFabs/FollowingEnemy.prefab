@@ -598,7 +598,7 @@ MonoBehaviour:
   startMoving: 0
   leftWall: 0
   rightWall: 0
-  speed: 3
+  speed: 10
   triggerNumber: 0
   fallSpeed: 0
 --- !u!1 &7483890422472647600

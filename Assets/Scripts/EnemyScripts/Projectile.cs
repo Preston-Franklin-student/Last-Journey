@@ -9,13 +9,15 @@ namespace LastJourney
     {
         public GameObject target;
         public Rigidbody2D rigidbody;
-        public Timer timer;
+        Timer timer;
         public int speed;
         public int decreaseTime;
+        public bool inGround = true;
 
         public void Init(GameObject target)
         {
             StartCoroutine(Destroy());
+            StartCoroutine(DestroyInGround());
             this.target = target;
             Vector2 directionVector = (target.transform.position - transform.position).normalized;
             rigidbody.velocity = directionVector * speed;
@@ -23,8 +25,14 @@ namespace LastJourney
 
         IEnumerator Destroy()
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(3);
             Destroy(gameObject);
+        }
+
+        IEnumerator DestroyInGround()
+        {
+            yield return new WaitForSeconds(0.3f);
+            if (inGround == true) Destroy(gameObject);
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -32,6 +40,16 @@ namespace LastJourney
             {
                 Timer timer = FindFirstObjectByType<Timer>();
                 timer.DecreaseTime(decreaseTime);
+                Destroy(gameObject);
+            }
+            if (other.gameObject.tag == "Ground" && inGround == false) Destroy(gameObject);
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.gameObject.tag == "Ground")
+            {
+                inGround = false;
             }
         }
         //For future use:

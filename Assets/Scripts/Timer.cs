@@ -9,9 +9,12 @@ namespace LastJourney
         public GameManager gameManager;
         public Text timerDisplay;
         public Score score;
+        public Player player;
+        public GameObject player2;
 
         public int timer = 300;
         public int levelIndex;
+        public bool destroyPlayer = false;
         // Start is called before the first frame update
         void Start()
         {
@@ -22,14 +25,25 @@ namespace LastJourney
 
         private void Update()
         {
-            if(timer <= 0)
+            if(timer <= 0 && destroyPlayer == false)
             {
                 StopCoroutine(StartTimer());
                 timer = 0;
                 timerDisplay.text = timer.ToString();
-                gameManager.TransferLevelIndex(levelIndex, score.score, score.highScore);
-                gameManager.GameOver();
+                destroyPlayer = true;
+                DestroyPlayer();
             }
+        }
+        private void DestroyPlayer()
+        {
+            player.PlayDeathEffect();
+            player2.SetActive(false);
+            Invoke("GameOver", 1);
+        }
+        private void GameOver()
+        {
+            gameManager.TransferLevelIndex(levelIndex, score.score, score.highScore);
+            gameManager.GameOver();
         }
 
         public void IncreaseTime(int increaseTime)

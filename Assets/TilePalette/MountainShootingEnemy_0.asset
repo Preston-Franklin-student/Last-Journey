@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: MountainEnemyTile
+  m_Name: MountainShootingEnemy_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -6098086973493743876, guid: 89b26d3bf528ba24da32df27f820d958, type: 3}
+  m_Sprite: {fileID: 6197384526513423964, guid: 284650ce1612bfe4194fff01b85a9f91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

@@ -123,6 +123,7 @@ MonoBehaviour:
   rigidbody: {fileID: 617024020172291300}
   camera: {fileID: 0}
   player: {fileID: 6981966428424797528}
+  playerDeathEffect: {fileID: 0}
   fallSpeed: -10
   isJumping: 0
   isFalling: 0
@@ -318,6 +319,7 @@ MonoBehaviour:
   rigidbody: {fileID: 617024020172291300}
   camera: {fileID: 0}
   player: {fileID: 6981966428424797528}
+  playerDeathEffect: {fileID: 2651593008958419576, guid: 2e5967af85568f14f8bbc3452f44fd98, type: 3}
   fallSpeed: -10
   isJumping: 0
   isFalling: 1

@@ -25,7 +25,16 @@ namespace LastJourney
         void Update()
         {
             Player player = FindFirstObjectByType<Player>();
-            if (triggerNumber == 0 && transform.position.x - player.transform.position.x <= 20 && startMoving == false)
+            Timer timer = FindFirstObjectByType<Timer>();
+            if (timer.destroyPlayer == true)
+            {
+                if(startMoving == false)
+                {
+                    direction = -1;
+                    startMoving = true;
+                }
+            }
+            else if (triggerNumber == 0 && transform.position.x - player.transform.position.x <= 20 && startMoving == false)
             {
                 direction = -1; 
                 startMoving = true;
