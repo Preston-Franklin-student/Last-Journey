@@ -17,6 +17,7 @@ namespace LastJourney
         public int jumpDelay;
         public float jumpForce = 4;
         public float fallSpeed;
+        bool startJumping = false;
 
         //This function will have the enemy start moving when the player gets close enough
         private void Start()
@@ -41,6 +42,7 @@ namespace LastJourney
                 timer.DecreaseTime(decreaseTime);
             }
             if (triggerNumber == 1 && other.gameObject.tag == "Ground") enemy.fallSpeed = 0f;
+            if (triggerNumber == 2 && other.gameObject.tag == "Ground" && enemy.startJumping == true) enemy.fallSpeed = -0.1f;
         }
         IEnumerator StartEnemy()
         {
@@ -53,6 +55,7 @@ namespace LastJourney
                     transform.Translate(Vector2.up * Time.deltaTime * jumpForce);
                     yield return new WaitForSeconds(0.001f);
                 }
+                if (triggerNumber == 0 && startJumping == false) startJumping = true;
                 fallSpeed = -5;
                 yield return new WaitForSeconds(jumpDelay);
             }

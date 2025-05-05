@@ -53,7 +53,6 @@ namespace LastJourney
         {
             LevelSelect levelSelect = FindFirstObjectByType<LevelSelect>();
             chosenLevel = levelSelect.currentLevelIndex + 3;
-            print(chosenLevel);
             SceneManager.LoadScene(chosenLevel);
         }
     }

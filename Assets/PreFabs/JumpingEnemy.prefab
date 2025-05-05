@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7544748402637461659}
-  - {fileID: 2102729197388151307}
+  - {fileID: 4816068810376880912}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2725060675902183221
@@ -54,7 +54,7 @@ MonoBehaviour:
   triggerNumber: 0
   jumpHeight: 4
   jumpDelay: 3
-  jumpForce: 12
+  jumpForce: 20
   fallSpeed: 0
 --- !u!61 &4310055633081521519
 BoxCollider2D:
@@ -129,7 +129,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!1 &5655764618650697465
+--- !u!1 &4537083222212521541
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,10 +137,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2102729197388151307}
-  - component: {fileID: 5877014674799798027}
-  - component: {fileID: 1286845425321165514}
-  - component: {fileID: 6874035491952931344}
+  - component: {fileID: 4816068810376880912}
+  - component: {fileID: 652100521338277914}
+  - component: {fileID: 7961159182745883748}
+  - component: {fileID: 6001038911971038378}
   m_Layer: 0
   m_Name: GroundCollider
   m_TagString: Untagged
@@ -148,13 +148,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2102729197388151307
+--- !u!4 &4816068810376880912
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5655764618650697465}
+  m_GameObject: {fileID: 4537083222212521541}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -163,13 +163,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4559939527488604025}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &5877014674799798027
+--- !u!61 &652100521338277914
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5655764618650697465}
+  m_GameObject: {fileID: 4537083222212521541}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -209,14 +209,14 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.53929186, y: 1.0778923}
   m_EdgeRadius: 0
---- !u!50 &1286845425321165514
+--- !u!50 &7961159182745883748
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5655764618650697465}
+  m_GameObject: {fileID: 4537083222212521541}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -236,13 +236,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &6874035491952931344
+--- !u!114 &6001038911971038378
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5655764618650697465}
+  m_GameObject: {fileID: 4537083222212521541}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb9910128df7bec4893dfeed0feb4129, type: 3}

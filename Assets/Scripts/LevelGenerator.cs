@@ -18,6 +18,7 @@ namespace LastJourney
         public List<int> enemyIndex = new List<int>();
 
         int generateSurfaceEnemy;
+        int generateSurfaceHazard;
         public int minHeight = 1;
         public int maxHeight = 3;
         public int minAmount = 2;
@@ -147,7 +148,9 @@ namespace LastJourney
                     }
                     yposition += 1;
                     generateSurfaceEnemy = Random.Range(1, maxEnemyChance);
-                    if (generateSurfaceEnemy == 1 && generator.targetEnemyIndex == generator.surfaceEnemyIndex && x > 10)
+                    generateSurfaceHazard = Random.Range(1, generator.maxSurfceHazardChance);
+                    if (generateSurfaceHazard == 1 && generator.generateSurfaceHazard < generator.surfaceHazardAmount) print("");
+                    else if (generateSurfaceEnemy == 1 && generator.targetEnemyIndex == generator.surfaceEnemyIndex && x > 10)
                     {
                         generator.GenerateSurfaceEnemy(xposition, yposition);
                         generatedSurfaceEnemy = true;

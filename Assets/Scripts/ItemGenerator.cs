@@ -23,6 +23,13 @@ namespace LastJourney
         public int targetEnemyIndex;
         public int spikeCooldown;
         public int surfaceEnemyIndex;
+
+        public int minSurfaceHazardAmount;
+        public int maxSurfaceHazardAmount;
+        public int surfaceHazardAmount;
+        public int generateSurfaceHazard;
+        public int maxSurfceHazardChance;
+
         int enemyCounter = 0;
         int clockCounter;
         public int maxClockCounter = 1;
@@ -30,8 +37,10 @@ namespace LastJourney
         public GameObject blueClock;
         public GameObject greenClock;
         public GameObject redClock;
+        public GameObject surfaceHazard;
         public Tilemap tilemap;
         public TileBase surfaceEnemySprite;
+        public TileBase surfaceHazardSprite;
 
         //This function is used to generate clocks on demand as well as determining
         // what clock will be generated
@@ -86,6 +95,25 @@ namespace LastJourney
             float generatoryposition = generator.transform.position.y + yposition;
             generator.transform.position = new Vector2(xposition + 0.5f, generatoryposition + 0.5f);
             Instantiate(enemies[surfaceEnemyIndex], transform.position, transform.rotation);
+        }
+
+        public void GenerateSurfaceHazard(int xposition, int yposition)
+        {
+            Vector3Int position = new Vector3Int(xposition, yposition, 0);
+            tilemap.SetTile(position, surfaceEnemySprite);
+
+            generator.transform.position = new Vector2(xposition, 0);
+            float generatoryposition = generator.transform.position.y + yposition;
+            generator.transform.position = new Vector2(xposition + 0.5f, generatoryposition + 0.5f);
+
+            if (surfaceHazardAmount == 1) surfaceHazardAmount = Random.Range(minSurfaceHazardAmount, maxSurfaceHazardAmount);
+            Instantiate(surfaceHazard, transform.position, transform.rotation);
+            generateSurfaceHazard++;
+            if (generateSpike == spikeAmount)
+            {
+                generateSurfaceHazard = 0;
+                surfaceHazardAmount = 1;
+            }
         }
     }
 }
