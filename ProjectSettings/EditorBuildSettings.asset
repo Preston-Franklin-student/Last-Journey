@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MountainLevel.unity
     guid: e0029d4f76e5157419a05f82be562016
+  - enabled: 1
+    path: Assets/Scenes/CandyLandLevel.unity
+    guid: 3e5cfe0165c6e17469113828ff159a3e
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

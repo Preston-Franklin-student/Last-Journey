@@ -99,17 +99,17 @@ namespace LastJourney
 
         public void GenerateSurfaceHazard(int xposition, int yposition)
         {
+            if (surfaceHazardAmount == 1) surfaceHazardAmount = Random.Range(minSurfaceHazardAmount, maxSurfaceHazardAmount);
             Vector3Int position = new Vector3Int(xposition, yposition, 0);
-            tilemap.SetTile(position, surfaceEnemySprite);
+            tilemap.SetTile(position, surfaceHazardSprite);
 
             generator.transform.position = new Vector2(xposition, 0);
             float generatoryposition = generator.transform.position.y + yposition;
             generator.transform.position = new Vector2(xposition + 0.5f, generatoryposition + 0.5f);
 
-            if (surfaceHazardAmount == 1) surfaceHazardAmount = Random.Range(minSurfaceHazardAmount, maxSurfaceHazardAmount);
             Instantiate(surfaceHazard, transform.position, transform.rotation);
             generateSurfaceHazard++;
-            if (generateSpike == spikeAmount)
+            if (generateSurfaceHazard == surfaceHazardAmount)
             {
                 generateSurfaceHazard = 0;
                 surfaceHazardAmount = 1;

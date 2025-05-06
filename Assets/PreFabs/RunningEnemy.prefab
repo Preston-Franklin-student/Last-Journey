@@ -588,7 +588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7805006184374559797}
   enemy: {fileID: 1286391125644359311}
-  decreaseTime: 5
+  decreaseTime: 10
   startMoving: 0
   speed: 5
   triggerNumber: 0

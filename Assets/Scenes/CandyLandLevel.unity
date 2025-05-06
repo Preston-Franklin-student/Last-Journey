@@ -386,8 +386,8 @@ MonoBehaviour:
   - {fileID: 27228201391250295, guid: 4828e3396bbf0584f8213c9a406c5fae, type: 3}
   - {fileID: 8089249345141680667, guid: 8efbbf07c703dc3409e0e58dcd214e59, type: 3}
   - {fileID: 5414436791959569265, guid: b6680c2bcddd33c499f7bf43b9e1f24d, type: 3}
-  minEnemyIndex: 1
-  maxEnemyIndex: 2
+  minEnemyIndex: 0
+  maxEnemyIndex: 1
   spikeIndex: 2
   minSpikeAmount: 2
   maxSpikeAmount: 4
@@ -396,12 +396,19 @@ MonoBehaviour:
   targetEnemyIndex: 0
   spikeCooldown: 0
   surfaceEnemyIndex: -1
+  minSurfaceHazardAmount: 3
+  maxSurfaceHazardAmount: 7
+  surfaceHazardAmount: 1
+  generateSurfaceHazard: 0
+  maxSurfceHazardChance: 25
   maxClockCounter: 1
   blueClock: {fileID: 3675840206169110759, guid: ea74f04b850d45047a85cbe11c986b2d, type: 3}
   greenClock: {fileID: 3675840206169110759, guid: 7f38ec96e612a8b43a69dd5b9fdc9f72, type: 3}
   redClock: {fileID: 3675840206169110759, guid: d910d3eb541b7ba4c951dbfc6214ea3d, type: 3}
-  tilemap: {fileID: 0}
+  surfaceHazard: {fileID: 1401374517992716497, guid: 9e697ebb1072b5b4bb3b90f65a48c29b, type: 3}
+  tilemap: {fileID: 945127046}
   surfaceEnemySprite: {fileID: 0}
+  surfaceHazardSprite: {fileID: 11400000, guid: 05bc69fbcca6baa408e54d7a3e6a37c8, type: 2}
 --- !u!4 &333593903
 Transform:
   m_ObjectHideFlags: 0
@@ -856,8 +863,9 @@ MonoBehaviour:
   maxPitSpawnChance: 0
   maxClockChance: 101
   enemyCounter: 0
-  canGenerateDuplicateHeight: 1
+  canGenerateDuplicateHeight: 0
   canGeneratePitFalls: 0
+  canGenerateSurfaceHazard: 1
 --- !u!1 &663128797 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8698558907294471432, guid: d80a1e7cbd7da5642a6f91515a251b96, type: 3}
@@ -1308,7 +1316,7 @@ MonoBehaviour:
   player: {fileID: 1042089454}
   player2: {fileID: 663128797}
   timer: 60
-  levelIndex: 3
+  levelIndex: 5
   destroyPlayer: 0
 --- !u!1 &1056896584
 GameObject:
@@ -1363,6 +1371,37 @@ MonoBehaviour:
   generator: {fileID: 1056896586}
   minTransformation: 4
   maxTransformation: 7
+--- !u!1 &1124244001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1124244002}
+  m_Layer: 0
+  m_Name: HazardousSurface
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1124244002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124244001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 135.2279, y: 604.86084, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1204227523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,7 +1528,7 @@ MonoBehaviour:
   highscoreDatabase: {fileID: 378789483}
   score: 0
   highScore: 0
-  level: Forest
+  level: CandyLand
 --- !u!4 &1388996274
 Transform:
   m_ObjectHideFlags: 0
@@ -2028,3 +2067,4 @@ SceneRoots:
   - {fileID: 1815180981}
   - {fileID: 1204227525}
   - {fileID: 1604079477}
+  - {fileID: 1124244002}

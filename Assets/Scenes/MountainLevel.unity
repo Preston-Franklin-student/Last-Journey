@@ -360,12 +360,19 @@ MonoBehaviour:
   targetEnemyIndex: 0
   spikeCooldown: 0
   surfaceEnemyIndex: 1
+  minSurfaceHazardAmount: 0
+  maxSurfaceHazardAmount: 0
+  surfaceHazardAmount: 0
+  generateSurfaceHazard: 0
+  maxSurfceHazardChance: 0
   maxClockCounter: 1
   blueClock: {fileID: 3675840206169110759, guid: ea74f04b850d45047a85cbe11c986b2d, type: 3}
   greenClock: {fileID: 3675840206169110759, guid: 7f38ec96e612a8b43a69dd5b9fdc9f72, type: 3}
   redClock: {fileID: 3675840206169110759, guid: d910d3eb541b7ba4c951dbfc6214ea3d, type: 3}
+  surfaceHazard: {fileID: 0}
   tilemap: {fileID: 945127046}
   surfaceEnemySprite: {fileID: 11400000, guid: 05bc69fbcca6baa408e54d7a3e6a37c8, type: 2}
+  surfaceHazardSprite: {fileID: 0}
 --- !u!4 &333593903
 Transform:
   m_ObjectHideFlags: 0
@@ -699,6 +706,7 @@ MonoBehaviour:
   enemyCounter: 0
   canGenerateDuplicateHeight: 0
   canGeneratePitFalls: 1
+  canGenerateSurfaceHazard: 0
 --- !u!1 &945127042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,7 +1322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1776505730
 RectTransform:
   m_ObjectHideFlags: 0

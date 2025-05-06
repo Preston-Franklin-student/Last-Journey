@@ -396,12 +396,19 @@ MonoBehaviour:
   targetEnemyIndex: 0
   spikeCooldown: 0
   surfaceEnemyIndex: -1
+  minSurfaceHazardAmount: 0
+  maxSurfaceHazardAmount: 0
+  surfaceHazardAmount: 0
+  generateSurfaceHazard: 0
+  maxSurfceHazardChance: 0
   maxClockCounter: 1
   blueClock: {fileID: 3675840206169110759, guid: ea74f04b850d45047a85cbe11c986b2d, type: 3}
   greenClock: {fileID: 3675840206169110759, guid: 7f38ec96e612a8b43a69dd5b9fdc9f72, type: 3}
   redClock: {fileID: 3675840206169110759, guid: d910d3eb541b7ba4c951dbfc6214ea3d, type: 3}
+  surfaceHazard: {fileID: 0}
   tilemap: {fileID: 0}
   surfaceEnemySprite: {fileID: 0}
+  surfaceHazardSprite: {fileID: 0}
 --- !u!4 &333593903
 Transform:
   m_ObjectHideFlags: 0
@@ -851,13 +858,14 @@ MonoBehaviour:
   minAmount: 4
   maxAmount: 8
   minEnemyChance: 10
-  maxEnemyChance: 30
+  maxEnemyChance: 10
   minPitSpawnChance: 0
   maxPitSpawnChance: 0
   maxClockChance: 101
   enemyCounter: 0
   canGenerateDuplicateHeight: 1
   canGeneratePitFalls: 0
+  canGenerateSurfaceHazard: 0
 --- !u!1 &663128797 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8698558907294471432, guid: d80a1e7cbd7da5642a6f91515a251b96, type: 3}

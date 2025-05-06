@@ -34,6 +34,7 @@ namespace LastJourney
         bool generateEnemy = false;
         public bool canGenerateDuplicateHeight;
         public bool canGeneratePitFalls;
+        public bool canGenerateSurfaceHazard;
         // Start is called before the first frame update
         void Start()
         {
@@ -69,7 +70,7 @@ namespace LastJourney
         //This code generates a new section
         IEnumerator GenerateLevel()
         {
-            int columnHeight = 3;
+            int columnHeight = 2;
             int previousColumnHeight;
             int columnAmount = 0;
             int maxColumnAmount = Random.Range(minAmount, maxAmount + 1);
@@ -78,7 +79,7 @@ namespace LastJourney
             int columnHeightBeforePitFall = 0;
             int xposition = -1;
             int yposition = -1;
-
+            bool justGeneratedSurfaceHazard = false;
             int itemGenerator = 0;
             for (int i = 0; i < 8; i++)
             {
@@ -130,9 +131,21 @@ namespace LastJourney
                         columnAmount = 0;
                         maxColumnAmount = Random.Range(minAmount, maxAmount + 1);
                     }
+                    if(generator.surfaceHazardAmount != 1 && previousColumnHeight != columnHeight && generator.surfaceHazardAmount != 0)
+                    {
+                        columnHeight = previousColumnHeight;
+                    }
+                    else
+                    {
                     if (previousColumnHeight == 0 && previousMaxColumnAmount >= 4) columnHeight = columnHeightBeforePitFall;
                     else if (previousColumnHeight == 0 && columnHeight > columnHeightBeforePitFall + 2) columnHeight = columnHeightBeforePitFall + 2;
                     else if (columnHeight > previousColumnHeight + 2 && previousColumnHeight != 0) columnHeight = previousColumnHeight + 2;
+                    if(justGeneratedSurfaceHazard == true)
+                        {
+                            justGeneratedSurfaceHazard = false;
+                            columnHeight = previousColumnHeight;
+                        }
+                    }
                 }
                 else
                 {
@@ -149,7 +162,16 @@ namespace LastJourney
                     yposition += 1;
                     generateSurfaceEnemy = Random.Range(1, maxEnemyChance);
                     generateSurfaceHazard = Random.Range(1, generator.maxSurfceHazardChance);
-                    if (generateSurfaceHazard == 1 && generator.generateSurfaceHazard < generator.surfaceHazardAmount) print("");
+                    if ((generateSurfaceHazard == 1 && generator.surfaceHazardAmount == 1 || generator.surfaceHazardAmount != 1) && canGenerateSurfaceHazard == true)
+                    {
+                        if (columnHeight == previousColumnHeight) generator.GenerateSurfaceHazard(xposition, yposition);
+                        else
+                        {
+                            Vector3Int newPosition = new Vector3Int(xposition, yposition, 0);
+                            tilemap.SetTile(newPosition, tileSurface);
+                        }
+                        if (generator.surfaceHazardAmount == 1) justGeneratedSurfaceHazard = true;
+                    }
                     else if (generateSurfaceEnemy == 1 && generator.targetEnemyIndex == generator.surfaceEnemyIndex && x > 10)
                     {
                         generator.GenerateSurfaceEnemy(xposition, yposition);
