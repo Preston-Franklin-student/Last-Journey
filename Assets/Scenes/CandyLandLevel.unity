@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19177274, g: 0.6743155, b: 0.9116213, a: 1}
+  m_IndirectSpecularColor: {r: 0.1918942, g: 0.67480475, b: 0.912108, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -405,7 +405,7 @@ MonoBehaviour:
   blueClock: {fileID: 3675840206169110759, guid: ea74f04b850d45047a85cbe11c986b2d, type: 3}
   greenClock: {fileID: 3675840206169110759, guid: 7f38ec96e612a8b43a69dd5b9fdc9f72, type: 3}
   redClock: {fileID: 3675840206169110759, guid: d910d3eb541b7ba4c951dbfc6214ea3d, type: 3}
-  surfaceHazard: {fileID: 1401374517992716497, guid: 9e697ebb1072b5b4bb3b90f65a48c29b, type: 3}
+  surfaceHazard: {fileID: 5955770405165108263, guid: 34f64a4e9f4b0a241be5782d802aba28, type: 3}
   tilemap: {fileID: 945127046}
   surfaceEnemySprite: {fileID: 0}
   surfaceHazardSprite: {fileID: 11400000, guid: 5632521f72a11714fbac2ff477f7e500, type: 2}
@@ -1944,6 +1944,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &2141142609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 266409228989911750, guid: d80a1e7cbd7da5642a6f91515a251b96, type: 3}
+  m_PrefabInstance: {fileID: 2506951125670337532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2141142614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141142609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74c89d8e09731245af10c98957d4c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2506951125670337532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2013,9 +2030,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 241497113}
     - target: {fileID: 6981966428424797528, guid: d80a1e7cbd7da5642a6f91515a251b96, type: 3}
+      propertyPath: baseJumpHeight
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981966428424797528, guid: d80a1e7cbd7da5642a6f91515a251b96, type: 3}
+      propertyPath: restrictedSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981966428424797528, guid: d80a1e7cbd7da5642a6f91515a251b96, type: 3}
       propertyPath: playerDeathEffect
       value: 
       objectReference: {fileID: 2651593008958419576, guid: 2e5967af85568f14f8bbc3452f44fd98, type: 3}
+    - target: {fileID: 6981966428424797528, guid: d80a1e7cbd7da5642a6f91515a251b96, type: 3}
+      propertyPath: restrictedFallSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8698558907294471432, guid: d80a1e7cbd7da5642a6f91515a251b96, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2044,10 +2073,14 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3712307565413696583, guid: d80a1e7cbd7da5642a6f91515a251b96, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 266409228989911750, guid: d80a1e7cbd7da5642a6f91515a251b96, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2141142614}
   m_SourcePrefab: {fileID: 100100000, guid: d80a1e7cbd7da5642a6f91515a251b96, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -1688,8 +1688,8 @@ MonoBehaviour:
   - {fileID: 6991518461464773337, guid: f42a4ed509fc87740893ad3489e32d0d, type: 3}
   - {fileID: 3785872898059469912, guid: 70f429ce23da68e4eb8b10eed1535a69, type: 3}
   generator: {fileID: 2022195559}
-  minTransformation: 9
-  maxTransformation: 13
+  minTransformation: 4
+  maxTransformation: 7
 --- !u!4 &2022195560
 Transform:
   m_ObjectHideFlags: 0

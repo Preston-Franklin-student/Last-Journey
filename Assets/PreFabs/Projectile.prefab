@@ -134,7 +134,7 @@ MonoBehaviour:
   target: {fileID: 0}
   rigidbody: {fileID: 3451714134572082617}
   speed: 15
-  decreaseTime: -5
+  decreaseTime: 5
   inGround: 1
 --- !u!58 &-9212630177673301699
 CircleCollider2D:

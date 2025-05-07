@@ -25,18 +25,22 @@ namespace LastJourney
         void Update()
         {
             Player player = FindFirstObjectByType<Player>();
-            if (triggerNumber == 0 && transform.position.x - player.transform.position.x <= 3 && startMoving == false)
+            Timer timer = FindFirstObjectByType<Timer>();
+            if(timer.destroyPlayer == false)
             {
-                direction = -1;
-                startMoving = true;
-            }
-            if(triggerNumber == 0)
-            {
-            if (player.transform.position.x > transform.position.x && leftWall == true) leftWall = false;
-            if (player.transform.position.x < transform.position.x && rightWall == true) rightWall = false;
-            if (Mathf.Abs(player.transform.position.x - transform.position.x) < 0.1f) direction = 0;
-            else if (player.transform.position.x < transform.position.x - 3 && leftWall == false && startMoving == true) direction = -1;
-            else if (player.transform.position.x > transform.position.x + 3 && rightWall == false && startMoving == true) direction = 1;
+                if (triggerNumber == 0 && transform.position.x - player.transform.position.x <= 3 && startMoving == false)
+                {
+                    direction = -1;
+                    startMoving = true;
+                }
+                if (triggerNumber == 0)
+                {
+                    if (player.transform.position.x > transform.position.x && leftWall == true) leftWall = false;
+                    if (player.transform.position.x < transform.position.x && rightWall == true) rightWall = false;
+                    if (Mathf.Abs(player.transform.position.x - transform.position.x) < 0.1f) direction = 0;
+                    else if (player.transform.position.x < transform.position.x - 3 && leftWall == false && startMoving == true) direction = -1;
+                    else if (player.transform.position.x > transform.position.x + 3 && rightWall == false && startMoving == true) direction = 1;
+                }
             }
             if (triggerNumber == 0)
             {

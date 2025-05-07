@@ -17,7 +17,10 @@ namespace LastJourney
         {
             nextTransformation = 0;
             generator.transform.position = new Vector2(0, 0);
-            while(generator.transform.position.x < 200)
+
+            selectedBackgroundObject = Random.Range(0, backGroundObjects.Length);
+            Instantiate(backGroundObjects[selectedBackgroundObject], transform.position, transform.rotation);
+            while (generator.transform.position.x < 200)
             {
                 selectedBackgroundObject = Random.Range(0, backGroundObjects.Length);
                 Instantiate(backGroundObjects[selectedBackgroundObject], transform.position, transform.rotation);

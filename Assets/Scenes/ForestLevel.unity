@@ -858,7 +858,7 @@ MonoBehaviour:
   minAmount: 4
   maxAmount: 8
   minEnemyChance: 10
-  maxEnemyChance: 10
+  maxEnemyChance: 30
   minPitSpawnChance: 0
   maxPitSpawnChance: 0
   maxClockChance: 101
