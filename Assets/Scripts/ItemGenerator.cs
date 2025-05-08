@@ -29,6 +29,8 @@ namespace LastJourney
         public int surfaceHazardAmount;
         public int generateSurfaceHazard;
         public int maxSurfceHazardChance;
+        public int surfaceHazardCooldown;
+        public bool justGeneratedSurfaceHazard = false;
 
         int enemyCounter = 0;
         int clockCounter;
@@ -113,6 +115,8 @@ namespace LastJourney
             {
                 generateSurfaceHazard = 0;
                 surfaceHazardAmount = 1;
+                surfaceHazardCooldown++;
+                justGeneratedSurfaceHazard = true;
             }
         }
     }

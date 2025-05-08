@@ -79,7 +79,7 @@ namespace LastJourney
             int columnHeightBeforePitFall = 0;
             int xposition = -1;
             int yposition = -1;
-            bool justGeneratedSurfaceHazard = false;
+            bool generatedSurfaceHazard = false;
             int itemGenerator = 0;
             for (int i = 0; i < 8; i++)
             {
@@ -140,9 +140,8 @@ namespace LastJourney
                     if (previousColumnHeight == 0 && previousMaxColumnAmount >= 4) columnHeight = columnHeightBeforePitFall;
                     else if (previousColumnHeight == 0 && columnHeight > columnHeightBeforePitFall + 2) columnHeight = columnHeightBeforePitFall + 2;
                     else if (columnHeight > previousColumnHeight + 2 && previousColumnHeight != 0) columnHeight = previousColumnHeight + 2;
-                    if(justGeneratedSurfaceHazard == true)
+                        if(generator.justGeneratedSurfaceHazard == true)
                         {
-                            justGeneratedSurfaceHazard = false;
                             columnHeight = previousColumnHeight;
                         }
                     }
@@ -164,13 +163,16 @@ namespace LastJourney
                     generateSurfaceHazard = Random.Range(1, generator.maxSurfceHazardChance);
                     if ((generateSurfaceHazard == 1 && generator.surfaceHazardAmount == 1 || generator.surfaceHazardAmount != 1) && canGenerateSurfaceHazard == true)
                     {
-                        if (columnHeight == previousColumnHeight) generator.GenerateSurfaceHazard(xposition, yposition);
+                        if (columnHeight == previousColumnHeight && 186 - x > generator.maxSurfaceHazardAmount * 2 && generator.surfaceHazardCooldown == 0)
+                        {
+                            generator.GenerateSurfaceHazard(xposition, yposition);
+                            generatedSurfaceHazard = true;
+                        }
                         else
                         {
                             Vector3Int newPosition = new Vector3Int(xposition, yposition, 0);
                             tilemap.SetTile(newPosition, tileSurface);
                         }
-                        if (generator.surfaceHazardAmount == 1) justGeneratedSurfaceHazard = true;
                     }
                     else if (generateSurfaceEnemy == 1 && generator.targetEnemyIndex == generator.surfaceEnemyIndex && x > 10)
                     {
@@ -186,14 +188,14 @@ namespace LastJourney
                     //This code is used to generate enemies, static hazards, and clocks
                     if (generator.maxEnemyIndex == enemyCounter) generator.maxEnemyIndex++;
                     if (generator.spikeAmount == 1) generator.targetEnemyIndex = Random.Range(generator.minEnemyIndex, generator.maxEnemyIndex);
-                    if (generator.generateSpike == generator.spikeAmount || columnHeight != previousColumnHeight)
+                    if (generator.generateSpike == generator.spikeAmount || columnHeight != previousColumnHeight || generatedSurfaceHazard == true)
                     {
                         generator.spikeCooldown = 1;
                         generator.generateSpike = 0;
                         generator.spikeAmount = 1;
                     }
                     if (generator.spikeAmount == 1) itemGenerator = Random.Range(1, maxEnemyChance + 1);
-                    if (itemGenerator == 1 && columnHeight == previousColumnHeight && x > 10 && generatedSurfaceEnemy == false)
+                    if (itemGenerator == 1 && columnHeight == previousColumnHeight && x > 10 && generatedSurfaceEnemy == false && generatedSurfaceHazard == false)
                     {
                         if (generator.targetEnemyIndex != generator.surfaceEnemyIndex && generator.targetEnemyIndex != generator.spikeIndex)
                         {
@@ -201,7 +203,7 @@ namespace LastJourney
                             generateEnemy = true;
                         }
                     }
-                    if ((itemGenerator == 1 && generator.spikeAmount == 1 || generator.spikeAmount != 1) && generator.spikeCooldown == 0 && generatedSurfaceEnemy == false)
+                    if ((itemGenerator == 1 && generator.spikeAmount == 1 || generator.spikeAmount != 1) && generator.spikeCooldown == 0 && generatedSurfaceEnemy == false && generatedSurfaceHazard == false)
                     {
                         if (generator.targetEnemyIndex == generator.spikeIndex && columnHeight == previousColumnHeight && x > 10)
                         {
@@ -218,6 +220,10 @@ namespace LastJourney
                 xposition += 1;
                 if (generator.spikeCooldown == 5) generator.spikeCooldown = 0;
                 else if (generator.spikeCooldown != 0) generator.spikeCooldown++;
+                if (generator.surfaceHazardCooldown == 5) generator.surfaceHazardCooldown = 0;
+                else if (generator.surfaceHazardCooldown != 0) generator.surfaceHazardCooldown++;
+                if (generator.justGeneratedSurfaceHazard == false && generatedSurfaceHazard == true) generatedSurfaceHazard = false;
+                if(generator.surfaceHazardCooldown == 3) generator.justGeneratedSurfaceHazard = false;
                 yield return new WaitForSeconds(0.001f);
             }
             for (int i = 0; i < 8; i++)

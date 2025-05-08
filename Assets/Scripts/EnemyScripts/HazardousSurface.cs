@@ -19,7 +19,7 @@ namespace LastJourney
                 if (player.hazardousSurfaceCounter == 0) player.restrictedSpeed = 0.2f;
                 player.hazardousSurfaceCounter += 1;
                 player.restrictedJumpHeight = 2.5f;
-                player.restrictedFallSpeed = 0.2f;
+                if (player.isJumping == false) player.restrictedFallSpeed = 0.2f;
             }
         }
 
