@@ -8,6 +8,13 @@ namespace LastJourney
     {
         public Player player;
 
+        float defaultWidth = 20f;
+        private void Start()
+        {
+            GetComponent<Camera>();
+            float aspectRatio = (float)Screen.width / Screen.height;
+            UnityEngine.Camera.main.orthographicSize = defaultWidth / aspectRatio / 2;
+        }
         // Update is called once per frame
         void Update()
         {
