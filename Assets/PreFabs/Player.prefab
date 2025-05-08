@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7650530012949921484}
   - component: {fileID: 2680905764705819028}
   - component: {fileID: 5662561407465397465}
-  - component: {fileID: 3712307565413696583}
+  - component: {fileID: 7034163867331696820}
   m_Layer: 0
   m_Name: GroundCollider
   m_TagString: Untagged
@@ -68,7 +68,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0016790032, y: -0.067160726}
+  m_Offset: {x: -0.0016790032, y: -0.030923486}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -78,7 +78,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.6809863, y: 1.1343215}
+  m_Size: {x: 0.6809863, y: 1.061847}
   m_EdgeRadius: 0
 --- !u!50 &5662561407465397465
 Rigidbody2D:
@@ -107,7 +107,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &3712307565413696583
+--- !u!114 &7034163867331696820
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,19 +116,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 266409228989911750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf4d3195f1746da4db014680e048b3de, type: 3}
+  m_Script: {fileID: 11500000, guid: c74c89d8e09731245af10c98957d4c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 4
-  rigidbody: {fileID: 617024020172291300}
-  camera: {fileID: 0}
-  player: {fileID: 6981966428424797528}
-  playerDeathEffect: {fileID: 0}
-  fallSpeed: -10
-  isJumping: 0
-  isFalling: 0
-  speed: 5
-  triggerNumber: 1
 --- !u!1 &4935062699401440694
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,11 +310,15 @@ MonoBehaviour:
   camera: {fileID: 0}
   player: {fileID: 6981966428424797528}
   playerDeathEffect: {fileID: 2651593008958419576, guid: 2e5967af85568f14f8bbc3452f44fd98, type: 3}
+  baseJumpHeight: 3
+  restrictedJumpHeight: 0
   fallSpeed: -10
+  restrictedFallSpeed: 1
   isJumping: 0
   isFalling: 1
   speed: 10
-  triggerNumber: 0
+  restrictedSpeed: 1
+  hazardousSurfaceCounter: 0
 --- !u!61 &5598284673170583476
 BoxCollider2D:
   m_ObjectHideFlags: 0

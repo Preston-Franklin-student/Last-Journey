@@ -322,7 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 521030080656884700}
   enemy: {fileID: 1444041216256681131}
-  decreaseTime: 7
+  decreaseTime: 5
   startMoving: 0
   speed: 10
   triggerNumber: 0

@@ -18,7 +18,7 @@ namespace LastJourney
             {
                 if (player.hazardousSurfaceCounter == 0) player.restrictedSpeed = 0.2f;
                 player.hazardousSurfaceCounter += 1;
-                player.restrictedJumpHeight = 2f;
+                player.restrictedJumpHeight = 2.5f;
                 player.restrictedFallSpeed = 0.2f;
             }
         }
@@ -29,8 +29,8 @@ namespace LastJourney
             {
                 player.hazardousSurfaceCounter -= 1;
                 if(player.hazardousSurfaceCounter == 0) player.restrictedSpeed = 1;
-                if (player.isJumping == false) player.restrictedJumpHeight = 0;
-                if( player.isJumping == false) player.restrictedFallSpeed = 1;
+                if (player.isJumping == false && player.hazardousSurfaceCounter == 0) player.restrictedJumpHeight = 0;
+                if( player.isJumping == false && player.hazardousSurfaceCounter == 0) player.restrictedFallSpeed = 1;
             }
         }
     }
