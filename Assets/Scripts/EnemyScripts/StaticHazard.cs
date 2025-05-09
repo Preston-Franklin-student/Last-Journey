@@ -6,7 +6,7 @@ namespace LastJourney
 {
     public class StaticHazard : MonoBehaviour
     {
-        int decreaseTime = 2;
+        public int decreaseTime = 2;
         private void OnTriggerEnter2D(Collider2D other)
         {
             if(other.gameObject.tag == "Player")

@@ -38,7 +38,7 @@ namespace LastJourney
         // Start is called before the first frame update
         void Start()
         {
-            StartCoroutine(GenerateLevel());
+            StartCoroutine(NewLevel());
             generator2.GenerateBackground();
         }
         //Destroys everything in the previous section and builds a new one
@@ -51,7 +51,7 @@ namespace LastJourney
             if (score.score == enemyIndex[enemyCounter]) enemyCounter++;
             generator.maxClockCounter++;
             player.transform.position = new Vector2(0, 3.5f);
-            StartCoroutine(GenerateLevel());
+            StartCoroutine(NewLevel());
             generator2.GenerateBackground();
         }
         //Destroys all assets in the current section
@@ -66,10 +66,16 @@ namespace LastJourney
                 }
             }
         }
-
-        //This code generates a new section
-        IEnumerator GenerateLevel()
+        IEnumerator NewLevel()
         {
+            print("working");
+            GenerateLevel();
+            yield return new WaitForSeconds(1);
+        }
+        //This code generates a new section
+        private void GenerateLevel()
+        {
+            print("working");
             int columnHeight = 2;
             int previousColumnHeight;
             int columnAmount = 0;
@@ -78,12 +84,12 @@ namespace LastJourney
             int spawnPitFall;
             int columnHeightBeforePitFall = 0;
             int xposition = -1;
-            int yposition = -1;
+            int yposition = -4;
             bool generatedSurfaceHazard = false;
             int itemGenerator = 0;
             for (int i = 0; i < 8; i++)
             {
-                for (int x = 0; x < 2; x++)
+                for (int x = 0; x < 5; x++)
                 {
                     yposition += 1;
                     Vector3Int position = new Vector3Int(xposition, yposition, 0);
@@ -92,9 +98,8 @@ namespace LastJourney
                 Vector3Int newPosition = new Vector3Int(xposition, yposition, 0);
                 tilemap.SetTile(newPosition, tileSurface);
 
-                yposition = -1;
-                xposition += 1;
-                yield return new WaitForSeconds(0.001f);
+                yposition = -4;
+                xposition += 1;;
             }
             for (int x = 0; x < 186; x++)
             {
@@ -152,7 +157,7 @@ namespace LastJourney
                 }
                 if(columnHeight != 0)
                 {
-                    for (int i = 0; i < columnHeight - 1; i++)
+                    for (int i = 0; i < columnHeight  + 2; i++)
                     {
                         yposition += 1;
                         Vector3Int position = new Vector3Int(xposition, yposition, 0);
@@ -216,7 +221,7 @@ namespace LastJourney
                 }
                 generateEnemy = false;
                 generatedSurfaceEnemy = false;
-                yposition = -1;
+                yposition = -4;
                 xposition += 1;
                 if (generator.spikeCooldown == 5) generator.spikeCooldown = 0;
                 else if (generator.spikeCooldown != 0) generator.spikeCooldown++;
@@ -224,11 +229,10 @@ namespace LastJourney
                 else if (generator.surfaceHazardCooldown != 0) generator.surfaceHazardCooldown++;
                 if (generator.justGeneratedSurfaceHazard == false && generatedSurfaceHazard == true) generatedSurfaceHazard = false;
                 if(generator.surfaceHazardCooldown == 3) generator.justGeneratedSurfaceHazard = false;
-                yield return new WaitForSeconds(0.001f);
             }
             for (int i = 0; i < 8; i++)
             {
-                for (int x = 0; x < 3; x++)
+                for (int x = 0; x < 5; x++)
                 {
                     yposition += 1;
                     Vector3Int position = new Vector3Int(xposition, yposition, 0);
@@ -237,9 +241,8 @@ namespace LastJourney
                 Vector3Int newPosition = new Vector3Int(xposition, yposition, 0);
                 tilemap.SetTile(newPosition, tileSurface);
 
-                yposition = -1;
+                yposition = -4;
                 xposition += 1;
-                yield return new WaitForSeconds(0.001f);
             }
         }
     }

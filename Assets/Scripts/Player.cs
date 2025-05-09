@@ -13,7 +13,7 @@ namespace LastJourney
         public Player player;
         public GameObject playerDeathEffect;
 
-        float maxJumpHeight;
+        public float maxJumpHeight;
         public float baseJumpHeight;
         public float restrictedJumpHeight = 0;
         public int fallSpeed = -10;
@@ -35,11 +35,6 @@ namespace LastJourney
         private void Update()
         {
                 float horizontalInput = Input.GetAxis("Horizontal");
-
-                if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && player.isFalling == false && isJumping == false)
-                {
-                    StartCoroutine(PlayerJump());
-                }
                 if (player.isFalling == true && isJumping == false)
                 {
                     fallSpeed = -10;
@@ -72,20 +67,6 @@ namespace LastJourney
                     transform.position = new Vector2(0, 3.5f);
                     rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
                 }
-        }
-
-        IEnumerator PlayerJump()
-        {
-            fallSpeed = 0;
-            isJumping = true;
-            maxJumpHeight = rigidbody.transform.position.y + (baseJumpHeight - restrictedJumpHeight);
-            while (rigidbody.transform.position.y < maxJumpHeight)
-            {
-                transform.Translate(Vector2.up * Time.deltaTime * jumpForce);
-                yield return new WaitForSeconds(0.001f);
-            }
-            fallSpeed = -10;
-            isJumping = false;
         }
     }
 }

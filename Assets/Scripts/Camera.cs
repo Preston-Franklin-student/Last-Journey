@@ -13,18 +13,18 @@ namespace LastJourney
         {
             GetComponent<Camera>();
             float aspectRatio = (float)Screen.width / Screen.height;
-            UnityEngine.Camera.main.orthographicSize = defaultWidth / aspectRatio / 2;
+            UnityEngine.Camera.main.orthographicSize = defaultWidth / aspectRatio / 1.65f;
         }
         // Update is called once per frame
         void Update()
         {
-            if(player.transform.position.x <= 9.04)
+            if(player.transform.position.x <= 11.21)
             {
-                transform.position = new Vector3(9.04f, 5.67f, -10);
+                transform.position = new Vector3(11.21f, 5.67f, -10);
             }
-            else if(player.transform.position.x >= 190.98)
+            else if(player.transform.position.x >= 188.53)
             {
-                transform.position = new Vector3(190.98f, 5.67f, -10);
+                transform.position = new Vector3(188.53f, 5.67f, -10);
             }
             else
             {
