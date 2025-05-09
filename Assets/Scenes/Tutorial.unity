@@ -1493,7 +1493,9 @@ MonoBehaviour:
     Use W or up arrow to jump.
 
     Use
-    S or down arrow to enter doors.'
+    S or down arrow to enter doors.
+
+    Press Escape to pause the level.'
 --- !u!222 &1138963114
 CanvasRenderer:
   m_ObjectHideFlags: 0

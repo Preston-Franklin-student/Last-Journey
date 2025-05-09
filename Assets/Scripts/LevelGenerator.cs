@@ -68,14 +68,12 @@ namespace LastJourney
         }
         IEnumerator NewLevel()
         {
-            print("working");
             GenerateLevel();
             yield return new WaitForSeconds(1);
         }
         //This code generates a new section
         private void GenerateLevel()
         {
-            print("working");
             int columnHeight = 2;
             int previousColumnHeight;
             int columnAmount = 0;
@@ -232,7 +230,7 @@ namespace LastJourney
             }
             for (int i = 0; i < 8; i++)
             {
-                for (int x = 0; x < 5; x++)
+                for (int x = 0; x < 6; x++)
                 {
                     yposition += 1;
                     Vector3Int position = new Vector3Int(xposition, yposition, 0);
