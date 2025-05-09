@@ -12,15 +12,29 @@ namespace LastJourney
         Timer timer;
         public int speed;
         public int decreaseTime;
+        public int projectileType;
         public bool inGround = true;
 
         public void Init(GameObject target)
         {
             StartCoroutine(Destroy());
-            StartCoroutine(DestroyInGround());
             this.target = target;
-            Vector2 directionVector = (target.transform.position - transform.position).normalized;
-            rigidbody.velocity = directionVector * speed;
+            if (projectileType == 1)
+            {
+                StartCoroutine(DestroyInGround());
+                Vector2 directionVector = (target.transform.position - transform.position).normalized;
+                rigidbody.velocity = directionVector * speed;
+            }
+        }
+
+        public void Init()
+        {
+            StartCoroutine(Destroy());
+            if (projectileType == 2)
+            {
+                print("working");
+                rigidbody.velocity = new Vector2(0, speed);
+            }
         }
 
         IEnumerator Destroy()
